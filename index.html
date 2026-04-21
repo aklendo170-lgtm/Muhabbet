@@ -148,7 +148,6 @@
       letter-spacing: .3em
     }
 
-    /* Style dla Modala (Pełnej karty) */
     .modal-overlay {
       opacity: 0;
       visibility: hidden;
@@ -175,16 +174,14 @@
     body.modal-open {
       overflow: hidden;
       padding-right: 8px;
-      /* kompensacja scrollbara */
     }
   </style>
 </head>
 
 <body class="font-sans antialiased overflow-x-hidden">
 
-  <nav
-    class="fixed w-full z-50 bg-brand-bg/90 backdrop-blur-md border-b border-brand-dark/10 py-4 px-6 md:px-12 flex justify-between items-center">
-    <a href="#" class="font-serif text-3xl italic font-semibold tracking-wide">Muhabbet.</a>
+  <nav class="fixed w-full z-50 bg-brand-bg/90 backdrop-blur-md border-b border-brand-dark/10 py-4 px-4 md:px-12 flex justify-between items-center">
+    <a href="#" class="font-serif text-2xl md:text-3xl italic font-semibold tracking-wide shrink-0">Muhabbet.</a>
     <div class="hidden md:flex gap-8 text-xs tracking-[.2em] uppercase font-medium">
       <a href="#menu" class="hover:text-brand-accent transition">Menu</a>
       <a href="#slodycze" class="hover:text-brand-accent transition">Słodycze & Kawa</a>
@@ -193,8 +190,9 @@
       <a href="#kontakt" class="hover:text-brand-accent transition">Kontakt</a>
     </div>
     <a href="https://maps.google.com/?q=Brzozowa+15+Krakow" target="_blank"
-      class="bg-brand-dark text-brand-bg px-5 py-2.5 rounded-full text-xs tracking-widest uppercase font-semibold hover:bg-brand-accent transition-all duration-300">Jak
-      dojechać</a>
+      class="bg-brand-dark text-brand-bg px-4 md:px-5 py-2.5 rounded-full text-[10px] md:text-xs tracking-widest uppercase font-semibold hover:bg-brand-accent transition-all duration-300 shrink-0">
+      Jak dojechać
+    </a>
   </nav>
 
   <header class="relative h-screen flex items-center justify-center parallax-bg"
@@ -262,55 +260,40 @@
       <p class="text-xs tracking-[.2em] uppercase opacity-50">Pon–Pt 09:00–15:00 · Sob–Niedz 09:00–16:00</p>
     </div>
     <div class="grid lg:grid-cols-3 gap-10 items-start">
-
       <div class="space-y-8" data-aos="fade-right">
         <div class="group cursor-pointer">
           <div class="flex items-baseline justify-between mb-1">
-            <h3 class="text-base font-semibold tracking-widest uppercase group-hover:text-brand-accent transition">Simit
-            </h3>
+            <h3 class="text-base font-semibold tracking-widest uppercase group-hover:text-brand-accent transition">Simit</h3>
             <span class="price-tag">39 zł</span>
           </div>
-          <p class="text-sm opacity-60 leading-relaxed">Turecki bajgiel „simit”, labneh ze skórką pomarańczy, guacamole,
-            jajecznica z 2 jajek, salsa pico de gallo, granat, oliwa z pul biber, liście botwinki.</p>
+          <p class="text-sm opacity-60 leading-relaxed">Turecki bajgiel „simit”, labneh ze skórką pomarańczy, guacamole, jajecznica z 2 jajek, salsa pico de gallo, granat, oliwa z pul biber, liście botwinki.</p>
         </div>
-
         <div class="group cursor-pointer border-t border-brand-dark/10 pt-6">
           <div class="flex items-baseline justify-between mb-1">
-            <h3
-              class="text-base font-semibold tracking-widest uppercase group-hover:text-brand-accent transition flex items-center gap-2">
-              Girit Toast <span class="badge">Popularny</span>
-            </h3>
+            <h3 class="text-base font-semibold tracking-widest uppercase group-hover:text-brand-accent transition flex items-center gap-2">Girit Toast <span class="badge">Popularny</span></h3>
             <span class="price-tag">52 zł</span>
           </div>
-          <p class="text-sm opacity-60 leading-relaxed">2 jajka w koszulkach, pasta z Anatolijskiego białego sera
-            solankowego Ezine, pistacje, świeża bazylia, flambirowane pomidorki koktajlowe, chleb na zakwasie od
-            Breaking Bread.</p>
+          <p class="text-sm opacity-60 leading-relaxed">2 jajka w koszulkach, pasta z Anatolijskiego białego sera solankowego Ezine, pistacje, świeża bazylia, flambirowane pomidorki koktajlowe, chleb na zakwasie od Breaking Bread.</p>
         </div>
-
         <div class="group cursor-pointer border-t border-brand-dark/10 pt-6">
           <div class="flex items-baseline justify-between mb-1">
-            <h3 class="text-base font-semibold tracking-widest uppercase group-hover:text-brand-accent transition">
-              Cilbir</h3>
+            <h3 class="text-base font-semibold tracking-widest uppercase group-hover:text-brand-accent transition">Cilbir</h3>
             <span class="price-tag">43 zł</span>
           </div>
-          <p class="text-sm opacity-60 leading-relaxed">2 jajka w koszulkach, jogurt czosnkowy, sos maślany z przyprawą
-            pul biber, koperek, suszona mięta, chleb na zakwasie od Breaking Bread.</p>
+          <p class="text-sm opacity-60 leading-relaxed">2 jajka w koszulkach, jogurt czosnkowy, sos maślany z przyprawą pul biber, koperek, suszona mięta, chleb na zakwasie od Breaking Bread.</p>
         </div>
       </div>
 
       <div class="flex flex-col gap-4" data-aos="zoom-in" data-aos-delay="100">
         <div class="img-zoom rounded-2xl" style="height:260px">
-          <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=800" alt="Brunch"
-            class="w-full h-full object-cover rounded-2xl">
+          <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=800" alt="Brunch" class="w-full h-full object-cover rounded-2xl">
         </div>
         <div class="grid grid-cols-2 gap-4">
           <div class="img-zoom rounded-xl" style="height:150px">
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=600" alt="Kawa"
-              class="w-full h-full object-cover rounded-xl">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=600" alt="Kawa" class="w-full h-full object-cover rounded-xl">
           </div>
           <div class="img-zoom rounded-xl" style="height:150px;margin-top:20px">
-            <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=600" alt="Jedzenie"
-              class="w-full h-full object-cover rounded-xl">
+            <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=600" alt="Jedzenie" class="w-full h-full object-cover rounded-xl">
           </div>
         </div>
       </div>
@@ -318,40 +301,26 @@
       <div class="space-y-8 flex flex-col h-full" data-aos="fade-left">
         <div class="group cursor-pointer">
           <div class="flex items-baseline justify-between mb-1">
-            <h3 class="text-base font-semibold tracking-widest uppercase group-hover:text-brand-accent transition">
-              Menemen</h3>
+            <h3 class="text-base font-semibold tracking-widest uppercase group-hover:text-brand-accent transition">Menemen</h3>
             <span class="price-tag">51 zł</span>
           </div>
-          <p class="text-sm opacity-60 leading-relaxed">Turecka jajecznica z 2 jajek z sosem pomidorowo-paprykowym z
-            cebulą, pietruszka, przyprawa pul biber i isot, chleb na zakwasie od Breaking Bread.</p>
+          <p class="text-sm opacity-60 leading-relaxed">Turecka jajecznica z 2 jajek z sosem pomidorowo-paprykowym z cebulą, pietruszka, przyprawa pul biber i isot, chleb na zakwasie od Breaking Bread.</p>
         </div>
-
         <div class="group cursor-pointer border-t border-brand-dark/10 pt-6">
           <div class="flex items-baseline justify-between mb-1">
-            <h3
-              class="text-base font-semibold tracking-widest uppercase group-hover:text-brand-accent transition flex items-center gap-2">
-              Bal Kaymak <span class="badge">Popularny</span>
-            </h3>
+            <h3 class="text-base font-semibold tracking-widest uppercase group-hover:text-brand-accent transition flex items-center gap-2">Bal Kaymak <span class="badge">Popularny</span></h3>
             <span class="price-tag">52 zł</span>
           </div>
-          <p class="text-sm opacity-60 leading-relaxed">Tosty francuskie z chałki, domowa pasta z pistacji / krem
-            czekoladowo-chałwowy z melasą z daktyli, owoce sezonowe, turecki kaymak, miód, malinowy coulis.</p>
+          <p class="text-sm opacity-60 leading-relaxed">Tosty francuskie z chałki, domowa pasta z pistacji / krem czekoladowo-chałwowy z melasą z daktyli, owoce sezonowe, turecki kaymak, miód, malinowy coulis.</p>
         </div>
-
         <div class="mt-auto pt-8">
-          <div
-            class="p-5 bg-brand-card rounded-2xl border border-brand-accent/20 text-xs space-y-2 opacity-80 shadow-sm relative overflow-hidden">
-            <div class="absolute -right-4 -top-4 opacity-10"><svg width="80" height="80" viewBox="0 0 24 24"
-                fill="currentColor">
-                <path
-                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          <div class="p-5 bg-brand-card rounded-2xl border border-brand-accent/20 text-xs space-y-2 opacity-80 shadow-sm relative overflow-hidden">
+            <div class="absolute -right-4 -top-4 opacity-10"><svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
               </svg></div>
             <p class="tracking-widest uppercase font-bold text-brand-accent mb-3 relative z-10">Zasady ugoszczenia</p>
-            <p class="relative z-10 font-medium">Ze względu na chęć ugoszczenia wszystkich gości, maksymalny czas przy
-              stoliku to <strong>100 minut</strong>.</p>
-            <p class="relative z-10 font-medium">Przy grupach 4-osobowych i większych doliczamy serwis
-              <strong>12,5%</strong> oraz <strong>nie rozdzielamy rachunków</strong>.
-            </p>
+            <p class="relative z-10 font-medium">Ze względu na chęć ugoszczenia wszystkich gości, maksymalny czas przy stoliku to <strong>100 minut</strong>.</p>
+            <p class="relative z-10 font-medium">Przy grupach 4-osobowych i większych doliczamy serwis <strong>12,5%</strong> oraz <strong>nie rozdzielamy rachunków</strong>.</p>
             <div class="w-full h-px bg-brand-dark/10 my-2 relative z-10"></div>
             <p class="relative z-10 opacity-75">Walk-in only · bez rezerwacji</p>
           </div>
@@ -369,148 +338,37 @@
 
   <div id="fullMenuModal"
     class="modal-overlay fixed inset-0 z-[100] bg-brand-dark/60 overflow-y-auto px-4 py-10 md:py-20 flex justify-center items-start">
-    <div
-      class="modal-content relative w-full max-w-5xl bg-brand-card rounded-3xl shadow-2xl overflow-hidden border border-brand-accent/20">
-
+    <div class="modal-content relative w-full max-w-5xl bg-brand-card rounded-3xl shadow-2xl overflow-hidden border border-brand-accent/20">
       <button onclick="closeMenuModal()"
         class="absolute top-6 right-6 p-2 text-brand-dark/50 hover:text-brand-accent transition z-20 bg-brand-bg rounded-full shadow-sm hover:shadow">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
-
       <div class="bg-brand-bg py-12 px-8 text-center border-b border-brand-dark/10 relative overflow-hidden">
         <p class="ornament mb-3">✦ ✦</p>
         <h2 class="text-4xl md:text-5xl font-serif italic mb-2 text-brand-dark">Pełna Karta</h2>
         <p class="text-xs tracking-[.2em] uppercase opacity-50 text-brand-dark">Śniadanie & Brunch</p>
       </div>
-
       <div class="p-8 md:p-14 grid md:grid-cols-2 gap-x-16 gap-y-10 bg-brand-card">
-
         <div class="space-y-8">
-          <div class="group">
-            <div class="flex items-baseline justify-between mb-1">
-              <h3 class="text-base font-semibold tracking-widest uppercase">Simit</h3>
-              <span class="price-tag">39 zł</span>
-            </div>
-            <p class="text-sm opacity-60 leading-relaxed">Turecki bajgiel „simit”, labneh ze skórką pomarańczy,
-              guacamole, jajecznica z 2 jajek, salsa pico de gallo, granat, oliwa z pul biber, liście botwinki.</p>
-          </div>
-
-          <div class="group border-t border-brand-dark/10 pt-6">
-            <div class="flex items-baseline justify-between mb-1">
-              <h3 class="text-base font-semibold tracking-widest uppercase flex items-center gap-2">Girit Toast <span
-                  class="badge">Popularny</span></h3>
-              <span class="price-tag">52 zł</span>
-            </div>
-            <p class="text-sm opacity-60 leading-relaxed">2 jajka w koszulkach, pasta z Anatolijskiego białego sera
-              solankowego Ezine, pistacje, świeża bazylia, flambirowane pomidorki koktajlowe, chleb na zakwasie.</p>
-          </div>
-
-          <div class="group border-t border-brand-dark/10 pt-6">
-            <div class="flex items-baseline justify-between mb-1">
-              <h3 class="text-base font-semibold tracking-widest uppercase">Cilbir</h3>
-              <span class="price-tag">43 zł</span>
-            </div>
-            <p class="text-sm opacity-60 leading-relaxed">2 jajka w koszulkach, jogurt czosnkowy, sos maślany z
-              przyprawą pul biber, koperek, suszona mięta, chleb na zakwasie.</p>
-          </div>
-
-          <div class="group border-t border-brand-dark/10 pt-6">
-            <div class="flex items-baseline justify-between mb-1">
-              <h3 class="text-base font-semibold tracking-widest uppercase">Cilbir 2.0</h3>
-              <span class="price-tag">43 zł</span>
-            </div>
-            <p class="text-sm opacity-60 leading-relaxed">2 jajka w koszulkach, labneh ze skórką pomarańczy i czosnkiem
-              niedźwiedzim, Grana Padano, pomidorki flambirowane, sos maślany z przyprawą pul biber, miód lawendowy.</p>
-          </div>
-
-          <div class="group border-t border-brand-dark/10 pt-6">
-            <div class="flex items-baseline justify-between mb-1">
-              <h3 class="text-base font-semibold tracking-widest uppercase">Pancar Koku</h3>
-              <span class="price-tag">44 zł</span>
-            </div>
-            <p class="text-sm opacity-60 leading-relaxed">Jajko 6 minut, hummus z buraka, karmelizowana gruszka z
-              cebulką, ser Ezine, granat, melasa z granatu, orzechy włoskie, sumak, chleb na zakwasie.</p>
-          </div>
-
-          <div class="group border-t border-brand-dark/10 pt-6">
-            <div class="flex items-baseline justify-between mb-1">
-              <h3 class="text-base font-semibold tracking-widest uppercase">Menemen</h3>
-              <span class="price-tag">51 zł</span>
-            </div>
-            <p class="text-sm opacity-60 leading-relaxed">Turecka jajecznica z 2 jajek z sosem pomidorowo-paprykowym z
-              cebulą, pietruszka, przyprawa pul biber i isot, chleb na zakwasie.</p>
-          </div>
+          <div class="group"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Simit</h3><span class="price-tag">39 zł</span></div><p class="text-sm opacity-60 leading-relaxed">Turecki bajgiel „simit”, labneh ze skórką pomarańczy, guacamole, jajecznica z 2 jajek, salsa pico de gallo, granat, oliwa z pul biber, liście botwinki.</p></div>
+          <div class="group border-t border-brand-dark/10 pt-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase flex items-center gap-2">Girit Toast <span class="badge">Popularny</span></h3><span class="price-tag">52 zł</span></div><p class="text-sm opacity-60 leading-relaxed">2 jajka w koszulkach, pasta z Anatolijskiego białego sera solankowego Ezine, pistacje, świeża bazylia, flambirowane pomidorki koktajlowe, chleb na zakwasie.</p></div>
+          <div class="group border-t border-brand-dark/10 pt-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Cilbir</h3><span class="price-tag">43 zł</span></div><p class="text-sm opacity-60 leading-relaxed">2 jajka w koszulkach, jogurt czosnkowy, sos maślany z przyprawą pul biber, koperek, suszona mięta, chleb na zakwasie.</p></div>
+          <div class="group border-t border-brand-dark/10 pt-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Cilbir 2.0</h3><span class="price-tag">43 zł</span></div><p class="text-sm opacity-60 leading-relaxed">2 jajka w koszulkach, labneh ze skórką pomarańczy i czosnkiem niedźwiedzim, Grana Padano, pomidorki flambirowane, sos maślany z przyprawą pul biber, miód lawendowy.</p></div>
+          <div class="group border-t border-brand-dark/10 pt-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Pancar Koku</h3><span class="price-tag">44 zł</span></div><p class="text-sm opacity-60 leading-relaxed">Jajko 6 minut, hummus z buraka, karmelizowana gruszka z cebulką, ser Ezine, granat, melasa z granatu, orzechy włoskie, sumak, chleb na zakwasie.</p></div>
+          <div class="group border-t border-brand-dark/10 pt-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Menemen</h3><span class="price-tag">51 zł</span></div><p class="text-sm opacity-60 leading-relaxed">Turecka jajecznica z 2 jajek z sosem pomidorowo-paprykowym z cebulą, pietruszka, przyprawa pul biber i isot, chleb na zakwasie.</p></div>
         </div>
-
         <div class="space-y-8">
-          <div class="group">
-            <div class="flex items-baseline justify-between mb-1">
-              <h3 class="text-base font-semibold tracking-widest uppercase">Poşekado</h3>
-              <span class="price-tag">45 zł</span>
-            </div>
-            <p class="text-sm opacity-60 leading-relaxed">2 jajka w koszulkach, labneh ze skórką z cytryny, guacamole,
-              pomidorki koktajlowe, rukola, sos bliskowshodni, oliwa z za'tarem, chleb.</p>
-          </div>
-
-          <div class="group border-t border-brand-dark/10 pt-6">
-            <div class="flex items-baseline justify-between mb-1">
-              <h3 class="text-base font-semibold tracking-widest uppercase">Eggkaido</h3>
-              <span class="price-tag">44 zł</span>
-            </div>
-            <p class="text-sm opacity-60 leading-relaxed">Jajecznica, awokado, majonez harissa, rzodkiewka, piklowana
-              cebula, przyprawa za'tar, chleb Hokkaido od Breaking Bread.</p>
-          </div>
-
-          <div class="group border-t border-brand-dark/10 pt-6">
-            <div class="flex items-baseline justify-between mb-1">
-              <h3 class="text-base font-semibold tracking-widest uppercase flex items-center gap-2">Bal Kaymak <span
-                  class="badge">Popularny</span></h3>
-              <span class="price-tag">52 zł</span>
-            </div>
-            <p class="text-sm opacity-60 leading-relaxed">Tosty francuskie z chałki, domowa pasta z pistacji / krem
-              czekoladowo-chałwowy, owoce sezonowe, turecki kaymak, miód, malinowy coulis.</p>
-          </div>
-
-          <div class="group border-t border-brand-dark/10 pt-6">
-            <div class="flex items-baseline justify-between mb-1">
-              <h3 class="text-base font-semibold tracking-widest uppercase">Gulseren</h3>
-              <span class="price-tag">42 zł</span>
-            </div>
-            <p class="text-sm opacity-60 leading-relaxed">Dubajskie naleśniki z pistacją oraz kadaifem, biała czekolada,
-              tahini, melasa z granatu, owoce sezonowe.</p>
-          </div>
-
-          <div class="group border-t border-brand-dark/10 pt-6">
-            <div class="flex items-baseline justify-between mb-1">
-              <h3 class="text-base font-semibold tracking-widest uppercase">Pembe Bulut</h3>
-              <span class="price-tag">31 zł</span>
-            </div>
-            <p class="text-sm opacity-60 leading-relaxed">Mini serniczki, śmietanka różana, sos z marakui, owoce
-              sezonowe, puder z pomarańczy.</p>
-          </div>
-
+          <div class="group"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Poşekado</h3><span class="price-tag">45 zł</span></div><p class="text-sm opacity-60 leading-relaxed">2 jajka w koszulkach, labneh ze skórką z cytryny, guacamole, pomidorki koktajlowe, rukola, sos bliskowshodni, oliwa z za'tarem, chleb.</p></div>
+          <div class="group border-t border-brand-dark/10 pt-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Eggkaido</h3><span class="price-tag">44 zł</span></div><p class="text-sm opacity-60 leading-relaxed">Jajecznica, awokado, majonez harissa, rzodkiewka, piklowana cebula, przyprawa za'tar, chleb Hokkaido od Breaking Bread.</p></div>
+          <div class="group border-t border-brand-dark/10 pt-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase flex items-center gap-2">Bal Kaymak <span class="badge">Popularny</span></h3><span class="price-tag">52 zł</span></div><p class="text-sm opacity-60 leading-relaxed">Tosty francuskie z chałki, domowa pasta z pistacji / krem czekoladowo-chałwowy, owoce sezonowe, turecki kaymak, miód, malinowy coulis.</p></div>
+          <div class="group border-t border-brand-dark/10 pt-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Gulseren</h3><span class="price-tag">42 zł</span></div><p class="text-sm opacity-60 leading-relaxed">Dubajskie naleśniki z pistacją oraz kadaifem, biała czekolada, tahini, melasa z granatu, owoce sezonowe.</p></div>
+          <div class="group border-t border-brand-dark/10 pt-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Pembe Bulut</h3><span class="price-tag">31 zł</span></div><p class="text-sm opacity-60 leading-relaxed">Mini serniczki, śmietanka różana, sos z marakui, owoce sezonowe, puder z pomarańczy.</p></div>
           <div class="mt-8 border-t border-brand-accent/30 pt-8 relative">
-            <p
-              class="absolute -top-3 left-4 bg-brand-card px-2 text-[10px] tracking-[.3em] text-brand-accent uppercase font-bold">
-              Śniadanie miesiąca</p>
-            <div class="group mb-6">
-              <div class="flex items-baseline justify-between mb-1">
-                <h3 class="text-base font-semibold tracking-widest uppercase">Alev</h3>
-                <span class="price-tag">38 zł</span>
-              </div>
-              <p class="text-sm opacity-60 leading-relaxed">Bajgiel „Simit”, pikantny Labneh, sumak, jajecznica z dwóch
-                jaj, grillowana pieczarka, bakłażan oraz cukinia, salsa pico de gallo, rukola, ser Ezine.</p>
-            </div>
-            <div class="group">
-              <div class="flex items-baseline justify-between mb-1">
-                <h3 class="text-base font-semibold tracking-widest uppercase">Morbahar</h3>
-                <span class="price-tag">38 zł</span>
-              </div>
-              <p class="text-sm opacity-60 leading-relaxed">Shokupan tostowany w rumie Kraken i espresso, krem z białą
-                czekoladą i wodą z kwiatu pomarańczy, konfitura malinowa, pistacje, liofilizowana malina.</p>
-            </div>
+            <p class="absolute -top-3 left-4 bg-brand-card px-2 text-[10px] tracking-[.3em] text-brand-accent uppercase font-bold">Śniadanie miesiąca</p>
+            <div class="group mb-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Alev</h3><span class="price-tag">38 zł</span></div><p class="text-sm opacity-60 leading-relaxed">Bajgiel „Simit”, pikantny Labneh, sumak, jajecznica z dwóch jaj, grillowana pieczarka, bakłażan oraz cukinia, salsa pico de gallo, rukola, ser Ezine.</p></div>
+            <div class="group"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Morbahar</h3><span class="price-tag">38 zł</span></div><p class="text-sm opacity-60 leading-relaxed">Shokupan tostowany w rumie Kraken i espresso, krem z białą czekoladą i wodą z kwiatu pomarańczy, konfitura malinowa, pistacje, liofilizowana malina.</p></div>
           </div>
         </div>
       </div>
@@ -524,148 +382,32 @@
         <p class="text-xs tracking-[.2em] uppercase opacity-40">Muhabbet's Specials · Specialty Coffee · Alkohole</p>
       </div>
       <div class="grid lg:grid-cols-2 gap-16 items-start">
-
         <div data-aos="fade-right">
-          <p class="text-[9px] tracking-[.3em] uppercase font-semibold opacity-35 mb-5 text-brand-warm">Desery & Herbaty
-          </p>
+          <p class="text-[9px] tracking-[.3em] uppercase font-semibold opacity-35 mb-5 text-brand-warm">Desery & Herbaty</p>
           <div class="space-y-4 mb-10">
-            <div class="group cursor-pointer flex items-baseline justify-between">
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Creme
-                  Pismaniye</p>
-                <p class="text-xs opacity-50 mt-0.5">Kremowy deser chałwowy, sos z pomarańczy, wata cukrowa</p>
-              </div>
-              <span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">26 zł</span>
-            </div>
-            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between">
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">
-                  Cheesecake</p>
-                <p class="text-xs opacity-50 mt-0.5">By Łukasz Bartman (dostępny w weekendy)</p>
-              </div>
-              <span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">28 zł</span>
-            </div>
-            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between">
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Turecka
-                  herbata Caykur / Bora Bora / Rooibos</p>
-                <p class="text-xs opacity-50 mt-0.5">Klasyczna mała (13 zł) lub duże dzbanki 500ml</p>
-              </div>
-              <span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">13 - 19 zł</span>
-            </div>
+            <div class="group cursor-pointer flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Creme Pismaniye</p><p class="text-xs opacity-50 mt-0.5">Kremowy deser chałwowy, sos z pomarańczy, wata cukrowa</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">26 zł</span></div>
+            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Cheesecake</p><p class="text-xs opacity-50 mt-0.5">By Łukasz Bartman (dostępny w weekendy)</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">28 zł</span></div>
+            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Turecka herbata Caykur / Bora Bora / Rooibos</p><p class="text-xs opacity-50 mt-0.5">Klasyczna mała (13 zł) lub duże dzbanki 500ml</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">13 - 19 zł</span></div>
           </div>
-
-          <p class="text-[9px] tracking-[.3em] uppercase font-semibold opacity-35 mb-5 text-brand-warm mt-12">Muhabbet's
-            Specials</p>
+          <p class="text-[9px] tracking-[.3em] uppercase font-semibold opacity-35 mb-5 text-brand-warm mt-12">Muhabbet's Specials</p>
           <div class="space-y-4 mb-10">
-            <div class="group cursor-pointer flex items-baseline justify-between">
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Rose /
-                  Lavender / Hazelnut Coffee</p>
-                <p class="text-xs opacity-50 mt-0.5">Autorskie syropy, espresso, śmietanka, mleko</p>
-              </div>
-              <span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">21 - 28 zł</span>
-            </div>
-            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between">
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Helva
-                  Coffee / Creamy Velvet</p>
-                <p class="text-xs opacity-50 mt-0.5">Doppio, tahini, miód (Creamy Velvet z Baileys)</p>
-              </div>
-              <span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">25 - 32 zł</span>
-            </div>
-            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between">
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Salep &
-                  Jaffa</p>
-                <p class="text-xs opacity-50 mt-0.5">Klasyczny napój salep / Czekolada mleczna z pomarańczą i doppio</p>
-              </div>
-              <span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">24 zł</span>
-            </div>
-            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between">
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Chai
-                  Masala / Pistachio-Raspberry</p>
-              </div>
-              <span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">21 - 28 zł</span>
-            </div>
+            <div class="group cursor-pointer flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Rose / Lavender / Hazelnut Coffee</p><p class="text-xs opacity-50 mt-0.5">Autorskie syropy, espresso, śmietanka, mleko</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">21 - 28 zł</span></div>
+            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Helva Coffee / Creamy Velvet</p><p class="text-xs opacity-50 mt-0.5">Doppio, tahini, miód (Creamy Velvet z Baileys)</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">25 - 32 zł</span></div>
+            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Salep & Jaffa</p><p class="text-xs opacity-50 mt-0.5">Klasyczny napój salep / Czekolada mleczna z pomarańczą i doppio</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">24 zł</span></div>
           </div>
         </div>
-
         <div data-aos="fade-left">
-          <p class="text-[9px] tracking-[.3em] uppercase font-semibold opacity-35 mb-5 text-brand-warm">Klasyczne Kawy &
-            Matcha</p>
+          <p class="text-[9px] tracking-[.3em] uppercase font-semibold opacity-35 mb-5 text-brand-warm">Klasyczne Kawy & Matcha</p>
           <div class="space-y-4 mb-10">
-            <div class="group cursor-pointer flex items-baseline justify-between">
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Kawa
-                  Turecka</p>
-                <p class="text-xs opacity-50 mt-0.5">Klasyczna / Kardamonowa / Czekoladowa (Wybierz poziom słodyczy)</p>
-              </div>
-              <span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">19 zł</span>
-            </div>
-            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between">
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Kawy na
-                  bazie Espresso</p>
-                <p class="text-xs opacity-50 mt-0.5">Doppio, Americano, Flat White, Cappuccino, Latte</p>
-              </div>
-              <span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">15 - 20 zł</span>
-            </div>
-            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between">
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Matcha
-                  Bar</p>
-                <p class="text-xs opacity-50 mt-0.5">Matcha latte, Iced matcha orange, Matcha tonic</p>
-              </div>
-              <span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">24 - 26 zł</span>
-            </div>
-            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between">
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Przelew
-                  & Alternatywy</p>
-                <p class="text-xs opacity-50 mt-0.5">Czarny przelew, Ruby (z sokiem z granatu), Espresso tonic</p>
-              </div>
-              <span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">16 - 25 zł</span>
-            </div>
+            <div class="group cursor-pointer flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Kawa Turecka</p><p class="text-xs opacity-50 mt-0.5">Klasyczna / Kardamonowa / Czekoladowa</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">19 zł</span></div>
+            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Kawy na bazie Espresso</p><p class="text-xs opacity-50 mt-0.5">Doppio, Americano, Flat White, Cappuccino, Latte</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">15 - 20 zł</span></div>
+            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Matcha Bar</p><p class="text-xs opacity-50 mt-0.5">Matcha latte, Iced matcha orange, Matcha tonic</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">24 - 26 zł</span></div>
             <p class="text-xs opacity-40 mt-3 italic">* Mleko roślinne (Owsiane / Grochowe) +3 zł, bez laktozy +2 zł</p>
           </div>
-
-          <p class="text-[9px] tracking-[.3em] uppercase font-semibold opacity-35 mb-5 text-brand-warm mt-12">Napoje
-            Zimne & Alkohole</p>
+          <p class="text-[9px] tracking-[.3em] uppercase font-semibold opacity-35 mb-5 text-brand-warm mt-12">Napoje Zimne & Alkohole</p>
           <div class="space-y-4 mb-10">
-            <div class="group cursor-pointer flex items-baseline justify-between">
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">
-                  Lemoniady & Świeże Soki</p>
-                <p class="text-xs opacity-50 mt-0.5">Różana, lawendowa, pomarańcza, granat NFC, Orange Ruby</p>
-              </div>
-              <span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">od 17 zł</span>
-            </div>
-            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between">
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Koko
-                  Kombucha</p>
-                <p class="text-xs opacity-50 mt-0.5">Klasyczna, imbirowa, mięta marokańska</p>
-              </div>
-              <span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">23 zł</span>
-            </div>
-            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between">
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">
-                  Frizzante & Mimosa</p>
-                <p class="text-xs opacity-50 mt-0.5">Mimosa pomarańczowa / granatowa, kieliszki i karafki</p>
-              </div>
-              <span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">od 15 zł</span>
-            </div>
-            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between">
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Likiery
-                  & Piwo</p>
-                <p class="text-xs opacity-50 mt-0.5">Tureckie piwo Efes, Likier Paesano (Pistacja, Meloncello)</p>
-              </div>
-              <span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">19 - 25 zł</span>
-            </div>
+            <div class="group cursor-pointer flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Lemoniady & Świeże Soki</p><p class="text-xs opacity-50 mt-0.5">Różana, lawendowa, pomarańcza, granat NFC</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">od 17 zł</span></div>
+            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Frizzante & Mimosa</p><p class="text-xs opacity-50 mt-0.5">Mimosa pomarańczowa / granatowa, kieliszki i karafki</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">od 15 zł</span></div>
           </div>
         </div>
       </div>
@@ -683,93 +425,9 @@
         <h2 class="text-4xl md:text-5xl font-serif italic">Co mówią goście</h2>
       </div>
       <div class="grid md:grid-cols-3 gap-6 mb-12">
-        <div class="review-card" data-aos="fade-up" data-aos-delay="0">
-          <div style="color:#B85C2C;font-size:13px" class="mb-4 mt-2">★★★★★</div>
-          <p class="text-sm leading-relaxed opacity-75 mb-5">Najlepsze śniadanie jakie jadłam w Krakowie. Simit i Cilbir
-            to coś absolutnie wyjątkowego. Wróciłam następnego dnia by spróbować Bal Kaymak.</p>
-          <div class="flex items-center gap-3">
-            <div
-              style="width:36px;height:36px;border-radius:50%;background:#B85C2C22;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#7a3515">
-              MK</div>
-            <div>
-              <p class="text-sm font-semibold">Marta K.</p>
-              <p class="text-xs opacity-40">Google · Polska</p>
-            </div>
-          </div>
-        </div>
-        <div class="review-card" data-aos="fade-up" data-aos-delay="100">
-          <div style="color:#B85C2C;font-size:13px" class="mb-4 mt-2">★★★★★</div>
-          <p class="text-sm leading-relaxed opacity-75 mb-5">One of the best breakfast meals we've ever had. We ordered
-            the two bestsellers — both were amazing. A must when visiting Krakow. Staff was excellent, coffee fantastic.
-            10/10.</p>
-          <div class="flex items-center gap-3">
-            <div
-              style="width:36px;height:36px;border-radius:50%;background:#B85C2C22;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#7a3515">
-              JB</div>
-            <div>
-              <p class="text-sm font-semibold">James B.</p>
-              <p class="text-xs opacity-40">Google · Wielka Brytania</p>
-            </div>
-          </div>
-        </div>
-        <div class="review-card" data-aos="fade-up" data-aos-delay="200">
-          <div style="color:#B85C2C;font-size:13px" class="mb-4 mt-2">★★★★★</div>
-          <p class="text-sm leading-relaxed opacity-75 mb-5">Porcje ogromne, obsługa super. Klimat luźny i autentyczny —
-            dokładnie to czego szukałam na Kazimierzu. Specialty coffee i pyszna turecka herbata dopełniły całości.</p>
-          <div class="flex items-center gap-3">
-            <div
-              style="width:36px;height:36px;border-radius:50%;background:#B85C2C22;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#7a3515">
-              AW</div>
-            <div>
-              <p class="text-sm font-semibold">Anna W.</p>
-              <p class="text-xs opacity-40">Google · Polska</p>
-            </div>
-          </div>
-        </div>
-        <div class="review-card" data-aos="fade-up" data-aos-delay="50">
-          <div style="color:#B85C2C;font-size:13px" class="mb-4 mt-2">★★★★★</div>
-          <p class="text-sm leading-relaxed opacity-75 mb-5">Really nice food and coffee. Portion sizes are huge and
-            prices are fantastic. The Menemen is incredible — warm, filling, full of flavour. Will be back every time
-            I'm in Krakow.</p>
-          <div class="flex items-center gap-3">
-            <div
-              style="width:36px;height:36px;border-radius:50%;background:#B85C2C22;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#7a3515">
-              TH</div>
-            <div>
-              <p class="text-sm font-semibold">Tom H.</p>
-              <p class="text-xs opacity-40">Google · Irlandia</p>
-            </div>
-          </div>
-        </div>
-        <div class="review-card" data-aos="fade-up" data-aos-delay="150">
-          <div style="color:#B85C2C;font-size:13px" class="mb-4 mt-2">★★★★★</div>
-          <p class="text-sm leading-relaxed opacity-75 mb-5">Kolejka stała na zewnątrz ale warto było czekać. Muhabbet
-            to coś więcej niż śniadaniownia — to doświadczenie. Niepowtarzalne smaki, orientalna atmosfera, naprawdę
-            wyjątkowe miejsce.</p>
-          <div class="flex items-center gap-3">
-            <div
-              style="width:36px;height:36px;border-radius:50%;background:#B85C2C22;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#7a3515">
-              PL</div>
-            <div>
-              <p class="text-sm font-semibold">Piotr L.</p>
-              <p class="text-xs opacity-40">Google · Polska</p>
-            </div>
-          </div>
-        </div>
-        <div class="review-card" data-aos="fade-up" data-aos-delay="250">
-          <div style="color:#B85C2C;font-size:13px" class="mb-4 mt-2">★★★★★</div>
-          <p class="text-sm leading-relaxed opacity-75 mb-5">Scrumptious breakfast, great service. The Girit Toast is
-            perfectly balanced and nothing like you get elsewhere. Great specialty coffee selection too!</p>
-          <div class="flex items-center gap-3">
-            <div
-              style="width:36px;height:36px;border-radius:50%;background:#B85C2C22;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#7a3515">
-              SC</div>
-            <div>
-              <p class="text-sm font-semibold">Sarah C.</p>
-              <p class="text-xs opacity-40">TripAdvisor · USA</p>
-            </div>
-          </div>
-        </div>
+        <div class="review-card" data-aos="fade-up" data-aos-delay="0"><div style="color:#B85C2C;font-size:13px" class="mb-4 mt-2">★★★★★</div><p class="text-sm leading-relaxed opacity-75 mb-5">Najlepsze śniadanie jakie jadłam w Krakowie. Simit i Cilbir to coś absolutnie wyjątkowego. Wróciłam następnego dnia by spróbować Bal Kaymak.</p><div class="flex items-center gap-3"><div style="width:36px;height:36px;border-radius:50%;background:#B85C2C22;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#7a3515">MK</div><div><p class="text-sm font-semibold">Marta K.</p><p class="text-xs opacity-40">Google · Polska</p></div></div></div>
+        <div class="review-card" data-aos="fade-up" data-aos-delay="100"><div style="color:#B85C2C;font-size:13px" class="mb-4 mt-2">★★★★★</div><p class="text-sm leading-relaxed opacity-75 mb-5">One of the best breakfast meals we've ever had. We ordered the two bestsellers — both were amazing. A must when visiting Krakow.</p><div class="flex items-center gap-3"><div style="width:36px;height:36px;border-radius:50%;background:#B85C2C22;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#7a3515">JB</div><div><p class="text-sm font-semibold">James B.</p><p class="text-xs opacity-40">Google · UK</p></div></div></div>
+        <div class="review-card" data-aos="fade-up" data-aos-delay="200"><div style="color:#B85C2C;font-size:13px" class="mb-4 mt-2">★★★★★</div><p class="text-sm leading-relaxed opacity-75 mb-5">Porcje ogromne, obsługa super. Klimat luźny i autentyczny — dokładnie to czego szukałam na Kazimierzu. Specialty coffee dopełniła całości.</p><div class="flex items-center gap-3"><div style="width:36px;height:36px;border-radius:50%;background:#B85C2C22;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#7a3515">AW</div><div><p class="text-sm font-semibold">Anna W.</p><p class="text-xs opacity-40">Google · Polska</p></div></div></div>
       </div>
       <div class="flex flex-wrap justify-center gap-3" data-aos="fade-up">
         <span class="press-badge">TripAdvisor · Top Restaurant Kraków</span>
@@ -785,30 +443,19 @@
       <p class="text-xs tracking-[.2em] uppercase opacity-50">32 000 obserwujących · Instagram</p>
     </div>
     <div class="insta-grid grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-3" data-aos="fade-up" data-aos-delay="100">
-      <div class="cell col-span-2 row-span-2" style="height:280px">
-        <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=800" alt="Instagram">
-      </div>
-      <div class="cell" style="height:135px"><img
-          src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=600" alt="Instagram"></div>
-      <div class="cell" style="height:135px"><img
-          src="https://images.unsplash.com/photo-1519676867240-f03562e64548?q=80&w=600" alt="Instagram"></div>
-      <div class="cell" style="height:135px"><img
-          src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=600" alt="Instagram"></div>
-      <div class="cell" style="height:135px"><img
-          src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=600" alt="Instagram"></div>
-      <div class="cell" style="height:135px"><img
-          src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600" alt="Instagram"></div>
-      <div class="cell" style="height:135px"><img
-          src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=600" alt="Instagram"></div>
-      <div class="cell" style="height:135px"><img
-          src="https://images.unsplash.com/photo-1436076863939-06870fe779c2?q=80&w=600" alt="Instagram"></div>
-      <div class="cell" style="height:135px"><img
-          src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=600" alt="Instagram"></div>
+      <div class="cell col-span-2 row-span-2" style="height:280px"><img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=800" alt="Instagram"></div>
+      <div class="cell" style="height:135px"><img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=600" alt="Instagram"></div>
+      <div class="cell" style="height:135px"><img src="https://images.unsplash.com/photo-1519676867240-f03562e64548?q=80&w=600" alt="Instagram"></div>
+      <div class="cell" style="height:135px"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=600" alt="Instagram"></div>
+      <div class="cell" style="height:135px"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=600" alt="Instagram"></div>
+      <div class="cell" style="height:135px"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600" alt="Instagram"></div>
+      <div class="cell" style="height:135px"><img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=600" alt="Instagram"></div>
+      <div class="cell" style="height:135px"><img src="https://images.unsplash.com/photo-1436076863939-06870fe779c2?q=80&w=600" alt="Instagram"></div>
+      <div class="cell" style="height:135px"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=600" alt="Instagram"></div>
     </div>
     <div class="text-center mt-8" data-aos="fade-up">
       <a href="https://www.instagram.com/muhabbet_krakow/" target="_blank"
-        class="inline-block border border-brand-dark/30 text-brand-dark px-8 py-3 rounded-full text-xs tracking-widest uppercase font-semibold hover:bg-brand-dark hover:text-brand-bg transition-all duration-300">Obserwuj
-        na Instagramie</a>
+        class="inline-block border border-brand-dark/30 text-brand-dark px-8 py-3 rounded-full text-xs tracking-widest uppercase font-semibold hover:bg-brand-dark hover:text-brand-bg transition-all duration-300">Obserwuj na Instagramie</a>
     </div>
   </section>
 
@@ -817,70 +464,34 @@
       <div data-aos="fade-right">
         <p class="ornament mb-4">✦</p>
         <h2 class="text-5xl font-serif italic mb-6">Ciepła rozmowa.</h2>
-        <p class="text-base font-light leading-relaxed opacity-75 mb-6">Po turecku „muhabbet" oznacza ciepłą rozmowę
-          między przyjaciółmi. To w jednym słowie wszystko, czym chcemy być — miejscem, do którego przychodzi się bez
-          pośpiechu, na długie śniadanie, dobrą kawę i jedzenie, które smakuje jak coś domowego, tylko lepiej.</p>
-        <p class="text-base font-light leading-relaxed opacity-75 mb-8">Jesteśmy na Brzozowej 15, w sercu Kazimierza.
-          Wieczorami zamieniamy się w bar z koktajlami i kraftem. Bez rezerwacji — wpadnij, poczekaj chwilę w kolejce,
-          nie pożałujesz.</p>
+        <p class="text-base font-light leading-relaxed opacity-75 mb-6">Po turecku „muhabbet" oznacza ciepłą rozmowę między przyjaciółmi. To wszystko, czym chcemy być — miejscem, do którego przychodzi się bez pośpiechu, na długie śniadanie i dobrą kawę.</p>
+        <p class="text-base font-light leading-relaxed opacity-75 mb-8">Jesteśmy na Brzozowej 15, w sercu Kazimierza. Wieczorami zamieniamy się w bar z koktajlami i kraftem. Bez rezerwacji — wpadnij, poczekaj chwilę w kolejce, nie pożałujesz.</p>
         <div class="flex flex-wrap gap-2 mb-8">
           <span class="badge">Wegańskie opcje</span>
           <span class="badge">Walk-in only</span>
           <span class="badge">Specialty coffee</span>
           <span class="badge">Bar wieczorny</span>
-          <span class="badge">Kraft beer</span>
         </div>
-        <a href="https://www.instagram.com/muhabbet_krakow/" target="_blank"
-          class="inline-block border-b border-brand-warm pb-1 text-sm tracking-widest uppercase hover:text-brand-warm transition">Instagram
-          @muhabbet_krakow</a>
+        <a href="https://www.instagram.com/muhabbet_krakow/" target="_blank" class="inline-block border-b border-brand-warm pb-1 text-sm tracking-widest uppercase hover:text-brand-warm transition">Instagram @muhabbet_krakow</a>
       </div>
       <div class="grid grid-cols-2 gap-4 items-end" data-aos="fade-left">
-        <div class="img-zoom rounded-xl" style="height:270px;margin-top:28px">
-          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600"
-            class="w-full h-full object-cover rounded-xl">
-        </div>
-        <div class="img-zoom rounded-xl" style="height:270px">
-          <img src="https://images.unsplash.com/photo-1517433367423-c7e5b0f35086?q=80&w=600"
-            class="w-full h-full object-cover rounded-xl">
-        </div>
+        <div class="img-zoom rounded-xl" style="height:270px;margin-top:28px"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600" class="w-full h-full object-cover rounded-xl"></div>
+        <div class="img-zoom rounded-xl" style="height:270px"><img src="https://images.unsplash.com/photo-1517433367423-c7e5b0f35086?q=80&w=600" class="w-full h-full object-cover rounded-xl"></div>
       </div>
     </div>
   </section>
 
   <section id="kontakt" class="py-20 px-6 md:px-12 max-w-7xl mx-auto">
     <div class="grid md:grid-cols-3 gap-10 mb-14">
-      <div data-aos="fade-up">
-        <h4 class="font-serif italic text-2xl mb-4">Adres</h4>
-        <p class="text-sm opacity-60 leading-relaxed">ul. Brzozowa 15<br>31-050 Kraków, Kazimierz<br><br><span
-            class="text-xs opacity-50">Parking w okolicy · Pies mile widziany</span></p>
-      </div>
-      <div data-aos="fade-up" data-aos-delay="100">
-        <h4 class="font-serif italic text-2xl mb-4">Godziny</h4>
-        <p class="text-sm opacity-60 leading-relaxed">Pon – Pt: 09:00 – 15:00<br>Sob – Niedz: 09:00 – 16:00<br>Bar:
-          Pt–Niedz od 17:00 do 24:00<br><br><span class="text-xs opacity-50">Walk-in only · Czas przy stoliku do 100
-            min</span></p>
-      </div>
-      <div data-aos="fade-up" data-aos-delay="200">
-        <h4 class="font-serif italic text-2xl mb-4">Kontakt</h4>
-        <p class="text-sm opacity-60 leading-relaxed">
-          <a href="https://www.instagram.com/muhabbet_krakow/" target="_blank"
-            class="hover:text-brand-accent transition">IG: @muhabbet_krakow</a><br>
-          <a href="https://www.facebook.com/muhabbetkrakow" target="_blank"
-            class="hover:text-brand-accent transition">FB: Muhabbet Bar Cafe</a><br><br>
-          <span class="text-xs opacity-50">Płatność kartą · WC na miejscu</span>
-        </p>
-      </div>
+      <div data-aos="fade-up"><h4 class="font-serif italic text-2xl mb-4">Adres</h4><p class="text-sm opacity-60 leading-relaxed">ul. Brzozowa 15<br>31-050 Kraków, Kazimierz<br><br><span class="text-xs opacity-50">Parking w okolicy · Pies mile widziany</span></p></div>
+      <div data-aos="fade-up" data-aos-delay="100"><h4 class="font-serif italic text-2xl mb-4">Godziny</h4><p class="text-sm opacity-60 leading-relaxed">Pon – Pt: 09:00 – 15:00<br>Sob – Niedz: 09:00 – 16:00<br>Bar: Pt–Niedz od 17:00<br><br><span class="text-xs opacity-50">Walk-in only · Czas stolika do 100 min</span></p></div>
+      <div data-aos="fade-up" data-aos-delay="200"><h4 class="font-serif italic text-2xl mb-4">Kontakt</h4><p class="text-sm opacity-60 leading-relaxed"><a href="https://www.instagram.com/muhabbet_krakow/" target="_blank" class="hover:text-brand-accent transition">IG: @muhabbet_krakow</a><br><a href="https://www.facebook.com/muhabbetkrakow" target="_blank" class="hover:text-brand-accent transition">FB: Muhabbet Bar Cafe</a><br><br><span class="text-xs opacity-50">Płatność kartą · WC na miejscu</span></p></div>
     </div>
     <div class="rounded-2xl overflow-hidden border border-brand-dark/10" style="height:320px" data-aos="fade-up">
-      <iframe
-        src="https://www.openstreetmap.org/export/embed.html?bbox=19.942%2C50.050%2C19.954%2C50.057&layer=mapnik&marker=50.053400%2C19.948200"
-        style="width:100%;height:100%;border:0" loading="lazy" allowfullscreen
-        title="Muhabbet Bar — ul. Brzozowa 15, Kraków"></iframe>
+      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=19.942%2C50.050%2C19.954%2C50.057&layer=mapnik&marker=50.053400%2C19.948200" style="width:100%;height:100%;border:0" loading="lazy" allowfullscreen title="Muhabbet Bar — ul. Brzozowa 15, Kraków"></iframe>
     </div>
     <div class="mt-6 text-center">
-      <a href="https://maps.google.com/?q=Brzozowa+15+Krakow" target="_blank"
-        class="inline-block bg-brand-dark text-brand-bg px-8 py-3 rounded-full text-xs tracking-widest uppercase font-semibold hover:bg-brand-accent transition-all duration-300">Otwórz
-        w Google Maps</a>
+      <a href="https://maps.google.com/?q=Brzozowa+15+Krakow" target="_blank" class="inline-block bg-brand-dark text-brand-bg px-8 py-3 rounded-full text-xs tracking-widest uppercase font-semibold hover:bg-brand-accent transition-all duration-300">Otwórz w Google Maps</a>
     </div>
   </section>
 
@@ -893,33 +504,10 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ once: true, offset: 80, easing: 'ease-out-cubic', duration: 700 });
-
-    function openMenuModal() {
-      const modal = document.getElementById('fullMenuModal');
-      modal.classList.add('active');
-      document.body.classList.add('modal-open');
-    }
-
-    function closeMenuModal() {
-      const modal = document.getElementById('fullMenuModal');
-      modal.classList.remove('active');
-      document.body.classList.remove('modal-open');
-    }
-
-    // Zamykanie modala po kliknięciu poza jego treść (w ciemne tło)
-    document.getElementById('fullMenuModal').addEventListener('click', function (e) {
-      if (e.target === this) {
-        closeMenuModal();
-      }
-    });
-
-    // Zamykanie klawiszem ESC
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        closeMenuModal();
-      }
-    });
+    function openMenuModal() { const modal = document.getElementById('fullMenuModal'); modal.classList.add('active'); document.body.classList.add('modal-open'); }
+    function closeMenuModal() { const modal = document.getElementById('fullMenuModal'); modal.classList.remove('active'); document.body.classList.remove('modal-open'); }
+    document.getElementById('fullMenuModal').addEventListener('click', function (e) { if (e.target === this) { closeMenuModal(); } });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeMenuModal(); } });
   </script>
 </body>
-
 </html>
