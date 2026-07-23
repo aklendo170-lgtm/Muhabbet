@@ -1,513 +1,871 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhabbet Bar — Kraków Kazimierz</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap"
-    rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script>
-    tailwind.config = { theme: { extend: { colors: { 'brand-bg': '#F0EBE3', 'brand-card': '#F7F3EE', 'brand-dark': '#1C1814', 'brand-accent': '#B85C2C', 'brand-warm': '#D4A574' }, fontFamily: { serif: ['"Cormorant Garamond"', 'serif'], sans: ['"Montserrat"', 'sans-serif'] } } } }
-  </script>
-  <style>
-    html {
-      scroll-behavior: smooth
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imię Nazwisko — Portfolio</title>
+<meta name="description" content="Portfolio ucznia technikum informatycznego — projekty, umiejętności, praktyki zawodowe i CV.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%E2%9A%A1</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   TOKENY / ZMIENNE
+   ============================================ */
+:root{
+  --bg:#0b0e14;
+  --bg-soft:#0e1219;
+  --surface:#141b26;
+  --surface-2:#182031;
+  --border:#232c3d;
+  --border-soft:#1a222f;
+  --text:#e7eaf0;
+  --text-muted:#8b93a7;
+  --text-faint:#5c6478;
+  --violet:#a78bfa;
+  --green:#4ade80;
+  --blue:#5b9df9;
+  --radius-lg:18px;
+  --radius-md:12px;
+  --radius-sm:8px;
+  --font-display:'Space Grotesk', sans-serif;
+  --font-body:'Inter', sans-serif;
+  --font-mono:'JetBrains Mono', monospace;
+  --nav-h:70px;
+  --container:1180px;
+}
 
-    body {
-      background-color: #F0EBE3;
-      color: #1C1814
-    }
+/* ============================================
+   RESET / BASE
+   ============================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.045) 1px, transparent 0);
+  background-size:28px 28px;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;}
+svg{display:block;flex-shrink:0;}
+.container{max-width:var(--container);margin:0 auto;padding:0 32px;}
+section{scroll-margin-top:var(--nav-h);}
+::selection{background:var(--blue);color:#0b0e14;}
+::-webkit-scrollbar{width:10px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px;}
+::-webkit-scrollbar-thumb:hover{background:var(--text-faint);}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px;}
 
-    .parallax-bg {
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover
-    }
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:13px;
+  color:var(--violet);
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:14px;
+  letter-spacing:.02em;
+}
+.eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(74,222,128,.15);}
 
-    ::-webkit-scrollbar {
-      width: 8px
-    }
+h1,h2,h3{font-family:var(--font-display);font-weight:600;letter-spacing:-0.01em;color:var(--text);}
+.section-title{font-size:clamp(26px,3.4vw,38px);margin-bottom:14px;}
+.section-sub{color:var(--text-muted);max-width:560px;margin-bottom:52px;font-size:15.5px;}
 
-    ::-webkit-scrollbar-track {
-      background: #F0EBE3
-    }
+.tag{
+  font-family:var(--font-mono);
+  font-size:12px;
+  padding:5px 11px;
+  border-radius:6px;
+  border:1px solid var(--border);
+  color:var(--text-muted);
+  background:var(--surface-2);
+  white-space:nowrap;
+}
 
-    ::-webkit-scrollbar-thumb {
-      background: #1C1814;
-      border-radius: 4px
-    }
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:13px 24px;border-radius:10px;
+  font-family:var(--font-mono);font-size:14px;font-weight:500;
+  border:1px solid transparent;cursor:pointer;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease, color .25s ease, background .25s ease;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--blue),var(--violet));
+  color:#0b0e14;font-weight:600;
+  box-shadow:0 10px 28px -12px rgba(91,157,249,.55);
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 34px -12px rgba(91,157,249,.7);}
+.btn-ghost{background:transparent;border-color:var(--border);color:var(--text);}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-3px);}
+.btn svg{width:16px;height:16px;}
 
-    .img-zoom {
-      overflow: hidden
-    }
+/* ============================================
+   NAV
+   ============================================ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:var(--nav-h);
+  display:flex;align-items:center;
+  border-bottom:1px solid transparent;
+  transition:background .35s ease, border-color .35s ease, backdrop-filter .35s ease;
+}
+.nav.scrolled{
+  background:rgba(11,14,20,.82);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom-color:var(--border-soft);
+}
+.nav-inner{
+  width:100%;max-width:var(--container);margin:0 auto;padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.logo{
+  font-family:var(--font-mono);font-weight:600;font-size:16px;color:var(--text);
+  display:flex;align-items:center;gap:6px;
+}
+.logo span{color:var(--blue);}
+.tabs{display:flex;align-items:center;gap:2px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:4px;}
+.tab{
+  font-family:var(--font-mono);font-size:12.5px;color:var(--text-muted);
+  padding:8px 14px;border-radius:7px;transition:color .25s ease, background .25s ease;
+  white-space:nowrap;
+}
+.tab:hover{color:var(--text);}
+.tab.active{color:var(--bg);background:var(--blue);}
+.nav-cta{display:inline-flex;}
+.menu-toggle{display:none;flex-direction:column;gap:5px;padding:8px;}
+.menu-toggle span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:transform .3s ease, opacity .3s ease;}
+.menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.menu-toggle.open span:nth-child(2){opacity:0;}
+.menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
-    .img-zoom img {
-      transition: transform .7s ease
-    }
+@media (max-width:860px){
+  .tabs{
+    position:fixed;top:var(--nav-h);left:16px;right:16px;
+    flex-direction:column;align-items:stretch;gap:2px;
+    max-height:0;overflow:hidden;opacity:0;
+    padding:0;border:1px solid var(--border);
+    background:rgba(15,19,28,.98);backdrop-filter:blur(16px);
+    transition:max-height .35s ease, opacity .3s ease, padding .35s ease;
+  }
+  .tabs.open{max-height:420px;opacity:1;padding:6px;}
+  .tab{padding:13px 16px;}
+  .nav-cta{display:none;}
+  .menu-toggle{display:flex;}
+}
 
-    .img-zoom:hover img {
-      transform: scale(1.05)
-    }
+/* ============================================
+   HERO
+   ============================================ */
+.hero{
+  position:relative;
+  padding:calc(var(--nav-h) + 64px) 0 90px;
+  overflow:hidden;
+}
+.hero::before,.hero::after{
+  content:'';position:absolute;border-radius:50%;filter:blur(90px);opacity:.16;pointer-events:none;
+}
+.hero::before{width:420px;height:420px;background:var(--blue);top:-120px;right:-80px;}
+.hero::after{width:380px;height:380px;background:var(--violet);bottom:-160px;left:-100px;}
+.hero-grid{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;position:relative;z-index:1;
+}
+.terminal-line{
+  font-family:var(--font-mono);font-size:13.5px;color:var(--text-faint);margin-bottom:18px;
+}
+.terminal-line .prompt{color:var(--green);}
+.typed-line{
+  font-family:var(--font-mono);font-size:clamp(18px,2.1vw,23px);color:var(--blue);font-weight:500;margin-bottom:26px;
+  min-height:1.4em;
+}
+.cursor{display:inline-block;width:2px;height:1em;background:var(--blue);margin-left:2px;vertical-align:middle;animation:blink 1s steps(1) infinite;}
+@keyframes blink{50%{opacity:0;}}
 
-    .hero-overlay {
-      background: linear-gradient(to bottom, rgba(15, 10, 5, .75) 0%, rgba(15, 10, 5, .45) 50%, rgba(240, 235, 227, .9) 92%, rgba(240, 235, 227, 1) 100%)
-    }
+.hero h1{font-size:clamp(32px,4.6vw,54px);line-height:1.12;margin-bottom:22px;}
+.hero h1 .accent{background:linear-gradient(135deg,var(--blue),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero p.bio{color:var(--text-muted);font-size:16.5px;max-width:520px;margin-bottom:34px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
 
-    .hero-title {
-      text-shadow: 0 2px 32px rgba(0, 0, 0, .7), 0 1px 6px rgba(0, 0, 0, .5)
-    }
+/* photo module */
+.photo-wrap{position:relative;display:flex;justify-content:center;align-items:center;}
+.photo-window{
+  width:min(320px,80vw);border-radius:var(--radius-lg);overflow:hidden;
+  background:var(--surface);border:1px solid var(--border);
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.55);
+}
+.photo-chrome{
+  display:flex;align-items:center;gap:6px;padding:11px 14px;border-bottom:1px solid var(--border);
+}
+.photo-chrome i{width:9px;height:9px;border-radius:50%;background:var(--border);}
+.photo-chrome i:nth-child(1){background:#ff5f57;}
+.photo-chrome i:nth-child(2){background:#febc2e;}
+.photo-chrome i:nth-child(3){background:#28c840;}
+.photo-chrome span{font-family:var(--font-mono);font-size:11px;color:var(--text-faint);margin-left:6px;}
+.photo-body{position:relative;aspect-ratio:1/1;background:var(--surface-2);}
+.photo-body img{width:100%;height:100%;object-fit:cover;}
+.photo-placeholder{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  color:var(--text-faint);background:
+    linear-gradient(135deg, rgba(91,157,249,.08), rgba(167,139,250,.08));
+  border:1px dashed var(--border);margin:10px;border-radius:10px;
+}
+.photo-placeholder svg{width:46px;height:46px;opacity:.5;}
+.photo-placeholder span{font-family:var(--font-mono);font-size:11.5px;}
 
-    .hero-sub {
-      text-shadow: 0 1px 12px rgba(0, 0, 0, .6)
-    }
+.chip{
+  position:absolute;display:flex;align-items:center;gap:6px;
+  padding:8px 13px;border-radius:20px;background:var(--surface);
+  border:1px solid var(--border);font-family:var(--font-mono);font-size:12.5px;font-weight:500;
+  box-shadow:0 12px 26px -14px rgba(0,0,0,.6);
+  animation:float 5s ease-in-out infinite;
+}
+.chip i{width:7px;height:7px;border-radius:50%;}
+.chip-1{top:2%;left:-6%;color:var(--blue);animation-delay:0s;}
+.chip-1 i{background:var(--blue);}
+.chip-2{top:18%;right:-10%;color:var(--violet);animation-delay:.6s;}
+.chip-2 i{background:var(--violet);}
+.chip-3{bottom:14%;left:-12%;color:var(--green);animation-delay:1.2s;}
+.chip-3 i{background:var(--green);}
+.chip-4{bottom:-2%;right:-4%;color:var(--text-muted);animation-delay:1.8s;}
+.chip-4 i{background:var(--text-muted);}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
 
-    .star {
-      color: #B85C2C;
-      font-size: 14px
-    }
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:70px;}
+  .photo-wrap{order:-1;}
+  .chip{position:absolute;}
+  .chip-1{left:0;}
+  .chip-2{right:0;}
+  .chip-3{left:2%;}
+  .chip-4{right:2%;}
+}
 
-    .review-card {
-      background: #F7F3EE;
-      border: 1px solid rgba(28, 24, 20, .08);
-      border-radius: 16px;
-      padding: 28px;
-      position: relative
-    }
+/* ============================================
+   MARQUEE
+   ============================================ */
+.marquee-section{
+  border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);
+  background:var(--bg-soft);padding:16px 0;overflow:hidden;
+}
+.marquee-viewport{overflow:hidden;width:100%;}
+.marquee-track{display:flex;width:max-content;animation:marquee 32s linear infinite;}
+.marquee-section:hover .marquee-track{animation-play-state:paused;}
+.marquee-group{display:flex;align-items:center;flex-shrink:0;}
+.marquee-item{
+  font-family:var(--font-mono);font-size:14px;color:var(--text-muted);
+  padding:0 22px;white-space:nowrap;display:flex;align-items:center;gap:22px;
+}
+.marquee-item b{color:var(--text);font-weight:600;}
+.marquee-item::after{content:'//';color:var(--border);}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-    .review-card::before {
-      content: '\201C';
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 72px;
-      color: #B85C2C;
-      opacity: .2;
-      position: absolute;
-      top: -8px;
-      left: 16px;
-      line-height: 1
-    }
+/* ============================================
+   SECTION LAYOUT
+   ============================================ */
+.section{padding:110px 0;}
+.section-alt{background:var(--bg-soft);}
 
-    .press-badge {
-      background: #1C1814;
-      color: #F0EBE3;
-      font-size: 10px;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 100px
-    }
+/* reveal */
+[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);}
+[data-reveal].is-visible{opacity:1;transform:translateY(0);}
 
-    .insta-grid img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .5s ease
-    }
+/* Qualification cards */
+.qual-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:64px;}
+.qual-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:32px;border-left:3px solid var(--border);
+  transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+.qual-card:hover{transform:translateY(-6px);box-shadow:0 24px 46px -26px rgba(0,0,0,.65);}
+.qual-card.c-green{border-left-color:var(--green);}
+.qual-card.c-blue{border-left-color:var(--blue);}
+.qual-badge{
+  font-family:var(--font-mono);font-size:13px;font-weight:600;padding:5px 12px;border-radius:6px;
+  display:inline-block;margin-bottom:16px;
+}
+.qual-card.c-green .qual-badge{color:var(--green);background:rgba(74,222,128,.1);}
+.qual-card.c-blue .qual-badge{color:var(--blue);background:rgba(91,157,249,.1);}
+.qual-card h3{font-size:17px;line-height:1.4;margin-bottom:14px;font-family:var(--font-body);font-weight:600;}
+.qual-card p{color:var(--text-muted);font-size:14.5px;margin-bottom:18px;}
+.qual-tags{display:flex;flex-wrap:wrap;gap:8px;}
 
-    .insta-grid .cell:hover img {
-      transform: scale(1.07)
-    }
+/* skill stack */
+.stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;}
+.stack-col h4{font-family:var(--font-mono);font-size:13px;color:var(--text-faint);margin-bottom:20px;text-transform:uppercase;letter-spacing:.06em;}
+.skill-row{margin-bottom:18px;}
+.skill-row-top{display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;}
+.skill-row-top .lvl{color:var(--text-faint);font-family:var(--font-mono);font-size:11.5px;}
+.skill-bar{height:5px;border-radius:4px;background:var(--surface-2);overflow:hidden;}
+.skill-fill{height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,var(--blue),var(--violet));transition:width 1.3s cubic-bezier(.2,.7,.2,1);}
+.skill-row.is-visible .skill-fill{width:var(--w);}
 
-    .insta-grid .cell {
-      overflow: hidden;
-      border-radius: 12px
-    }
+@media (max-width:860px){.qual-grid,.stack-grid{grid-template-columns:1fr;}}
 
-    .price-tag {
-      background: #1C1814;
-      color: #F0EBE3;
-      font-size: 11px;
-      padding: 3px 10px;
-      border-radius: 100px;
-      letter-spacing: .05em;
-      margin-left: 8px;
-      vertical-align: middle;
-      white-space: nowrap
-    }
+/* Timeline */
+.timeline{position:relative;padding-left:40px;}
+.timeline::before{
+  content:'';position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--border);
+  transform:scaleY(0);transform-origin:top;transition:transform 1s cubic-bezier(.2,.7,.2,1);
+}
+.timeline.is-visible::before{transform:scaleY(1);}
+.timeline-item{position:relative;padding-bottom:52px;}
+.timeline-item:last-child{padding-bottom:0;}
+.timeline-item::before{
+  content:'';position:absolute;left:-40px;top:6px;width:13px;height:13px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--blue);z-index:1;
+}
+.timeline-item:nth-child(2)::before{border-color:var(--violet);}
+.timeline-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:26px 28px;}
+.timeline-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:6px;}
+.timeline-meta .badge{font-family:var(--font-mono);font-size:12px;color:var(--blue);}
+.timeline-meta .date{font-family:var(--font-mono);font-size:12px;color:var(--text-faint);}
+.timeline-card h3{font-size:18px;margin-bottom:4px;font-family:var(--font-body);}
+.timeline-card .role{color:var(--text-muted);font-size:14px;margin-bottom:16px;}
+.timeline-card ul{display:flex;flex-direction:column;gap:9px;}
+.timeline-card li{font-size:14.5px;color:var(--text-muted);padding-left:18px;position:relative;}
+.timeline-card li::before{content:'▸';position:absolute;left:0;color:var(--green);}
 
-    .badge {
-      background: #B85C2C22;
-      color: #7a3515;
-      font-size: 10px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 100px;
-      border: 1px solid #B85C2C44
-    }
+/* Projects */
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.proj-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;
+  transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+.proj-card:hover{transform:translateY(-6px);border-color:var(--border);box-shadow:0 24px 46px -26px rgba(0,0,0,.65);}
+.code-thumb{
+  padding:22px 20px;background:linear-gradient(160deg,var(--surface-2),var(--bg-soft));
+  border-bottom:1px solid var(--border);
+}
+.code-thumb .dots{display:flex;gap:5px;margin-bottom:16px;}
+.code-thumb .dots i{width:8px;height:8px;border-radius:50%;background:var(--border);}
+.code-line{height:8px;border-radius:4px;margin-bottom:9px;opacity:.85;}
+.code-line:nth-child(2){width:70%;background:var(--violet);}
+.code-line:nth-child(3){width:45%;background:var(--text-faint);}
+.code-line:nth-child(4){width:85%;background:var(--blue);}
+.code-line:nth-child(5){width:30%;background:var(--green);}
+.proj-body{padding:26px 26px 28px;}
+.proj-body h3{font-size:17px;margin-bottom:8px;font-family:var(--font-body);}
+.proj-body p{color:var(--text-muted);font-size:14px;margin-bottom:16px;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+.proj-links{display:flex;gap:18px;}
+.proj-links a{display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:12.5px;color:var(--text-muted);transition:color .25s ease;}
+.proj-links a:hover{color:var(--blue);}
+.proj-links svg{width:14px;height:14px;}
 
-    .ornament {
-      color: #B85C2C;
-      opacity: .4;
-      font-size: 18px;
-      letter-spacing: .3em
-    }
+@media (max-width:900px){.proj-grid{grid-template-columns:1fr;}}
 
-    .modal-overlay {
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      backdrop-filter: blur(8px);
-    }
+/* Documents */
+.doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.doc-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:26px;display:flex;flex-direction:column;gap:18px;
+  transition:transform .3s ease,border-color .3s ease;
+}
+.doc-card:hover{transform:translateY(-4px);border-color:var(--blue);}
+.doc-icon{width:42px;height:42px;border-radius:10px;background:var(--surface-2);display:flex;align-items:center;justify-content:center;color:var(--blue);}
+.doc-icon svg{width:20px;height:20px;}
+.doc-card h3{font-size:16px;font-family:var(--font-body);}
+.doc-card p{color:var(--text-muted);font-size:13.5px;flex-grow:1;}
+.doc-card .btn{align-self:flex-start;padding:9px 16px;font-size:13px;}
 
-    .modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
+@media (max-width:860px){.doc-grid{grid-template-columns:1fr;}}
 
-    .modal-content {
-      transform: translateY(30px) scale(0.98);
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      opacity: 0;
-    }
+/* Footer / kontakt */
+.footer{
+  padding:110px 0 40px;position:relative;overflow:hidden;
+}
+.footer::before{
+  content:'';position:absolute;width:500px;height:500px;border-radius:50%;
+  background:var(--blue);opacity:.1;filter:blur(120px);top:-100px;left:50%;transform:translateX(-50%);
+}
+.footer-inner{position:relative;z-index:1;text-align:center;max-width:560px;margin:0 auto 70px;}
+.footer-inner h2{font-size:clamp(26px,3.6vw,40px);margin-bottom:16px;}
+.footer-inner p{color:var(--text-muted);margin-bottom:34px;font-size:15.5px;}
+.footer-inner .btn{margin:0 auto;}
+.socials{display:flex;justify-content:center;gap:14px;margin-top:36px;}
+.social-btn{
+  width:42px;height:42px;border-radius:10px;border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;color:var(--text-muted);
+  transition:color .25s ease, border-color .25s ease, transform .25s ease;
+}
+.social-btn:hover{color:var(--blue);border-color:var(--blue);transform:translateY(-3px);}
+.social-btn svg{width:18px;height:18px;}
+.footer-bottom{
+  border-top:1px solid var(--border-soft);padding-top:26px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  font-family:var(--font-mono);font-size:12px;color:var(--text-faint);
+}
 
-    .modal-overlay.active .modal-content {
-      transform: translateY(0) scale(1);
-      opacity: 1;
-    }
+@media (max-width:600px){
+  .container{padding:0 20px;}
+  .section{padding:80px 0;}
+  .hero{padding:calc(var(--nav-h) + 40px) 0 60px;}
+  .footer-bottom{justify-content:center;text-align:center;}
+}
 
-    body.modal-open {
-      overflow: hidden;
-      padding-right: 8px;
-    }
-  </style>
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  .chip,.marquee-track{animation:none;}
+  .cursor{animation:none;}
+  [data-reveal]{opacity:1;transform:none;transition:none;}
+}
+</style>
 </head>
+<body>
 
-<body class="font-sans antialiased overflow-x-hidden">
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#o-mnie" class="logo">&lt;<span>portfolio</span>/&gt;</a>
+    <nav class="tabs" id="tabs">
+      <a href="#o-mnie" class="tab" data-tab>o-mnie.html</a>
+      <a href="#umiejetnosci" class="tab" data-tab>umiejetnosci.json</a>
+      <a href="#praktyki" class="tab" data-tab>praktyki.log</a>
+      <a href="#projekty" class="tab" data-tab>projekty/</a>
+      <a href="#dokumenty" class="tab" data-tab>dokumenty.pdf</a>
+    </nav>
+    <a href="#kontakt" class="btn btn-ghost nav-cta">$ kontakt</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Otwórz menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-  <nav class="fixed w-full z-50 bg-brand-bg/90 backdrop-blur-md border-b border-brand-dark/10 py-4 px-4 md:px-12 flex justify-between items-center">
-    <a href="#" class="font-serif text-2xl md:text-3xl italic font-semibold tracking-wide shrink-0">Muhabbet.</a>
-    <div class="hidden md:flex gap-8 text-xs tracking-[.2em] uppercase font-medium">
-      <a href="#menu" class="hover:text-brand-accent transition">Menu</a>
-      <a href="#slodycze" class="hover:text-brand-accent transition">Słodycze & Kawa</a>
-      <a href="#opinie" class="hover:text-brand-accent transition">Opinie</a>
-      <a href="#o-nas" class="hover:text-brand-accent transition">O nas</a>
-      <a href="#kontakt" class="hover:text-brand-accent transition">Kontakt</a>
-    </div>
-    <a href="https://maps.google.com/?q=Brzozowa+15+Krakow" target="_blank"
-      class="bg-brand-dark text-brand-bg px-4 md:px-5 py-2.5 rounded-full text-[10px] md:text-xs tracking-widest uppercase font-semibold hover:bg-brand-accent transition-all duration-300 shrink-0">
-      Jak dojechać
-    </a>
-  </nav>
+<main>
+<!-- ============ HERO / O MNIE ============ -->
+<section class="hero" id="o-mnie">
+  <div class="container hero-grid">
+    <div>
+      <div class="terminal-line"><span class="prompt">ZapalaJan@portfolio</span>:~$ whoami</div>
+      <div class="typed-line" id="typedLine"><span id="typedText"></span><span class="cursor"></span></div>
 
-  <header class="relative h-screen flex items-center justify-center parallax-bg"
-    style="background-image:url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2000')">
-    <div class="absolute inset-0 hero-overlay"></div>
-    <div class="relative z-10 text-center px-4" data-aos="zoom-out" data-aos-duration="1400">
-      <p class="ornament mb-4">✦ ✦ ✦</p>
-      <h1 class="text-7xl md:text-9xl font-serif text-white mb-4 hero-title">Muhabbet.</h1>
-      <p class="text-white/75 text-xs tracking-[.4em] uppercase font-light hero-sub mb-3">محبّت</p>
-      <p class="text-white text-sm md:text-base tracking-[.25em] uppercase max-w-xl mx-auto font-light hero-sub mb-8">
-        Breakfast & Brunch · Specialty Coffee · Bar<br>
-        <span class="opacity-70">ul. Brzozowa 15 · Kazimierz · Kraków</span>
-      </p>
-      <div class="flex flex-wrap justify-center gap-3">
-        <span
-          class="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-sm border border-white/30 text-white text-xs px-4 py-2 rounded-full hero-sub">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="#B85C2C">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-          </svg>
-          4.6 / 5 · Google (1 700+ opinii)
-        </span>
-        <span
-          class="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-sm border border-white/30 text-white text-xs px-4 py-2 rounded-full hero-sub">32
-          K · Instagram</span>
-        <span
-          class="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-sm border border-white/30 text-white text-xs px-4 py-2 rounded-full hero-sub">Walk-in
-          only</span>
-      </div>
-    </div>
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-      <a href="#menu"><svg class="w-6 h-6 text-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg></a>
-    </div>
-  </header>
-
-  <section class="py-10 bg-brand-dark" data-aos="fade-up">
-    <div
-      class="max-w-5xl mx-auto px-12 flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center gap-10">
-      <div class="text-center">
-        <p class="font-serif italic text-brand-warm text-4xl mb-1">4.6★</p>
-        <p class="text-brand-bg/50 text-xs tracking-widest uppercase">Google · 1 700+ opinii</p>
-      </div>
-      <div class="hidden md:block w-px h-10 bg-white/10"></div>
-      <div class="text-center">
-        <p class="font-serif italic text-brand-warm text-4xl mb-1">32 K</p>
-        <p class="text-brand-bg/50 text-xs tracking-widest uppercase">Obserwujących · Instagram</p>
-      </div>
-      <div class="hidden md:block w-px h-10 bg-white/10"></div>
-      <div class="text-center">
-        <p class="font-serif italic text-brand-warm text-4xl mb-1">od 2021</p>
-        <p class="text-brand-bg/50 text-xs tracking-widest uppercase">Na Kazimierzu</p>
-      </div>
-      <div class="hidden md:block w-px h-10 bg-white/10"></div>
-      <div class="text-center">
-        <p class="font-serif italic text-brand-warm text-4xl mb-1">#1</p>
-        <p class="text-brand-bg/50 text-xs tracking-widest uppercase">Śniadaniownia · Kraków</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="menu" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
-    <div class="text-center mb-16" data-aos="fade-up">
-      <h2 class="text-5xl md:text-6xl font-serif italic mb-3">Śniadanie & Brunch</h2>
-      <p class="text-xs tracking-[.2em] uppercase opacity-50">Pon–Pt 09:00–15:00 · Sob–Niedz 09:00–16:00</p>
-    </div>
-    <div class="grid lg:grid-cols-3 gap-10 items-start">
-      <div class="space-y-8" data-aos="fade-right">
-        <div class="group cursor-pointer">
-          <div class="flex items-baseline justify-between mb-1">
-            <h3 class="text-base font-semibold tracking-widest uppercase group-hover:text-brand-accent transition">Simit</h3>
-            <span class="price-tag">39 zł</span>
-          </div>
-          <p class="text-sm opacity-60 leading-relaxed">Turecki bajgiel „simit”, labneh ze skórką pomarańczy, guacamole, jajecznica z 2 jajek, salsa pico de gallo, granat, oliwa z pul biber, liście botwinki.</p>
-        </div>
-        <div class="group cursor-pointer border-t border-brand-dark/10 pt-6">
-          <div class="flex items-baseline justify-between mb-1">
-            <h3 class="text-base font-semibold tracking-widest uppercase group-hover:text-brand-accent transition flex items-center gap-2">Girit Toast <span class="badge">Popularny</span></h3>
-            <span class="price-tag">52 zł</span>
-          </div>
-          <p class="text-sm opacity-60 leading-relaxed">2 jajka w koszulkach, pasta z Anatolijskiego białego sera solankowego Ezine, pistacje, świeża bazylia, flambirowane pomidorki koktajlowe, chleb na zakwasie od Breaking Bread.</p>
-        </div>
-        <div class="group cursor-pointer border-t border-brand-dark/10 pt-6">
-          <div class="flex items-baseline justify-between mb-1">
-            <h3 class="text-base font-semibold tracking-widest uppercase group-hover:text-brand-accent transition">Cilbir</h3>
-            <span class="price-tag">43 zł</span>
-          </div>
-          <p class="text-sm opacity-60 leading-relaxed">2 jajka w koszulkach, jogurt czosnkowy, sos maślany z przyprawą pul biber, koperek, suszona mięta, chleb na zakwasie od Breaking Bread.</p>
-        </div>
-      </div>
-
-      <div class="flex flex-col gap-4" data-aos="zoom-in" data-aos-delay="100">
-        <div class="img-zoom rounded-2xl" style="height:260px">
-          <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=800" alt="Brunch" class="w-full h-full object-cover rounded-2xl">
-        </div>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="img-zoom rounded-xl" style="height:150px">
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=600" alt="Kawa" class="w-full h-full object-cover rounded-xl">
-          </div>
-          <div class="img-zoom rounded-xl" style="height:150px;margin-top:20px">
-            <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=600" alt="Jedzenie" class="w-full h-full object-cover rounded-xl">
-          </div>
-        </div>
-      </div>
-
-      <div class="space-y-8 flex flex-col h-full" data-aos="fade-left">
-        <div class="group cursor-pointer">
-          <div class="flex items-baseline justify-between mb-1">
-            <h3 class="text-base font-semibold tracking-widest uppercase group-hover:text-brand-accent transition">Menemen</h3>
-            <span class="price-tag">51 zł</span>
-          </div>
-          <p class="text-sm opacity-60 leading-relaxed">Turecka jajecznica z 2 jajek z sosem pomidorowo-paprykowym z cebulą, pietruszka, przyprawa pul biber i isot, chleb na zakwasie od Breaking Bread.</p>
-        </div>
-        <div class="group cursor-pointer border-t border-brand-dark/10 pt-6">
-          <div class="flex items-baseline justify-between mb-1">
-            <h3 class="text-base font-semibold tracking-widest uppercase group-hover:text-brand-accent transition flex items-center gap-2">Bal Kaymak <span class="badge">Popularny</span></h3>
-            <span class="price-tag">52 zł</span>
-          </div>
-          <p class="text-sm opacity-60 leading-relaxed">Tosty francuskie z chałki, domowa pasta z pistacji / krem czekoladowo-chałwowy z melasą z daktyli, owoce sezonowe, turecki kaymak, miód, malinowy coulis.</p>
-        </div>
-        <div class="mt-auto pt-8">
-          <div class="p-5 bg-brand-card rounded-2xl border border-brand-accent/20 text-xs space-y-2 opacity-80 shadow-sm relative overflow-hidden">
-            <div class="absolute -right-4 -top-4 opacity-10"><svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg></div>
-            <p class="tracking-widest uppercase font-bold text-brand-accent mb-3 relative z-10">Zasady ugoszczenia</p>
-            <p class="relative z-10 font-medium">Ze względu na chęć ugoszczenia wszystkich gości, maksymalny czas przy stoliku to <strong>100 minut</strong>.</p>
-            <p class="relative z-10 font-medium">Przy grupach 4-osobowych i większych doliczamy serwis <strong>12,5%</strong> oraz <strong>nie rozdzielamy rachunków</strong>.</p>
-            <div class="w-full h-px bg-brand-dark/10 my-2 relative z-10"></div>
-            <p class="relative z-10 opacity-75">Walk-in only · bez rezerwacji</p>
-          </div>
-        </div>
+      <h1>Tworzę strony i aplikacje,<br>które <span class="accent">działają i dobrze wyglądają.</span></h1>
+      <p class="bio">Jestem uczniem klasy o profilu <strong>technik informatyk</strong>. Jestem uczniem Zespołu Szkół Łączności, aktualnie uzyskałem promocję do klasy 5 na kierunku technik informatyk. Chciałbym zdobyć doświadczenie, które pozwoli mi na dalszy rozwój w branży IT.</p>
+      <div class="hero-actions">
+        <a href="#projekty" class="btn btn-primary">
+          Zobacz projekty
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="cv.pdf" download class="btn btn-ghost">
+          Pobierz CV
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+        </a>
       </div>
     </div>
 
-    <div class="text-center mt-12" data-aos="fade-up">
-      <button onclick="openMenuModal()"
-        class="inline-block border border-brand-dark/30 text-brand-dark px-10 py-4 rounded-full text-sm tracking-widest uppercase font-semibold hover:bg-brand-dark hover:text-brand-bg hover:border-brand-dark transition-all duration-300">
-        Zobacz Pełną Kartę Śniadań
-      </button>
-    </div>
-  </section>
-
-  <div id="fullMenuModal"
-    class="modal-overlay fixed inset-0 z-[100] bg-brand-dark/60 overflow-y-auto px-4 py-10 md:py-20 flex justify-center items-start">
-    <div class="modal-content relative w-full max-w-5xl bg-brand-card rounded-3xl shadow-2xl overflow-hidden border border-brand-accent/20">
-      <button onclick="closeMenuModal()"
-        class="absolute top-6 right-6 p-2 text-brand-dark/50 hover:text-brand-accent transition z-20 bg-brand-bg rounded-full shadow-sm hover:shadow">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
-      <div class="bg-brand-bg py-12 px-8 text-center border-b border-brand-dark/10 relative overflow-hidden">
-        <p class="ornament mb-3">✦ ✦</p>
-        <h2 class="text-4xl md:text-5xl font-serif italic mb-2 text-brand-dark">Pełna Karta</h2>
-        <p class="text-xs tracking-[.2em] uppercase opacity-50 text-brand-dark">Śniadanie & Brunch</p>
-      </div>
-      <div class="p-8 md:p-14 grid md:grid-cols-2 gap-x-16 gap-y-10 bg-brand-card">
-        <div class="space-y-8">
-          <div class="group"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Simit</h3><span class="price-tag">39 zł</span></div><p class="text-sm opacity-60 leading-relaxed">Turecki bajgiel „simit”, labneh ze skórką pomarańczy, guacamole, jajecznica z 2 jajek, salsa pico de gallo, granat, oliwa z pul biber, liście botwinki.</p></div>
-          <div class="group border-t border-brand-dark/10 pt-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase flex items-center gap-2">Girit Toast <span class="badge">Popularny</span></h3><span class="price-tag">52 zł</span></div><p class="text-sm opacity-60 leading-relaxed">2 jajka w koszulkach, pasta z Anatolijskiego białego sera solankowego Ezine, pistacje, świeża bazylia, flambirowane pomidorki koktajlowe, chleb na zakwasie.</p></div>
-          <div class="group border-t border-brand-dark/10 pt-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Cilbir</h3><span class="price-tag">43 zł</span></div><p class="text-sm opacity-60 leading-relaxed">2 jajka w koszulkach, jogurt czosnkowy, sos maślany z przyprawą pul biber, koperek, suszona mięta, chleb na zakwasie.</p></div>
-          <div class="group border-t border-brand-dark/10 pt-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Cilbir 2.0</h3><span class="price-tag">43 zł</span></div><p class="text-sm opacity-60 leading-relaxed">2 jajka w koszulkach, labneh ze skórką pomarańczy i czosnkiem niedźwiedzim, Grana Padano, pomidorki flambirowane, sos maślany z przyprawą pul biber, miód lawendowy.</p></div>
-          <div class="group border-t border-brand-dark/10 pt-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Pancar Koku</h3><span class="price-tag">44 zł</span></div><p class="text-sm opacity-60 leading-relaxed">Jajko 6 minut, hummus z buraka, karmelizowana gruszka z cebulką, ser Ezine, granat, melasa z granatu, orzechy włoskie, sumak, chleb na zakwasie.</p></div>
-          <div class="group border-t border-brand-dark/10 pt-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Menemen</h3><span class="price-tag">51 zł</span></div><p class="text-sm opacity-60 leading-relaxed">Turecka jajecznica z 2 jajek z sosem pomidorowo-paprykowym z cebulą, pietruszka, przyprawa pul biber i isot, chleb na zakwasie.</p></div>
-        </div>
-        <div class="space-y-8">
-          <div class="group"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Poşekado</h3><span class="price-tag">45 zł</span></div><p class="text-sm opacity-60 leading-relaxed">2 jajka w koszulkach, labneh ze skórką z cytryny, guacamole, pomidorki koktajlowe, rukola, sos bliskowshodni, oliwa z za'tarem, chleb.</p></div>
-          <div class="group border-t border-brand-dark/10 pt-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Eggkaido</h3><span class="price-tag">44 zł</span></div><p class="text-sm opacity-60 leading-relaxed">Jajecznica, awokado, majonez harissa, rzodkiewka, piklowana cebula, przyprawa za'tar, chleb Hokkaido od Breaking Bread.</p></div>
-          <div class="group border-t border-brand-dark/10 pt-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase flex items-center gap-2">Bal Kaymak <span class="badge">Popularny</span></h3><span class="price-tag">52 zł</span></div><p class="text-sm opacity-60 leading-relaxed">Tosty francuskie z chałki, domowa pasta z pistacji / krem czekoladowo-chałwowy, owoce sezonowe, turecki kaymak, miód, malinowy coulis.</p></div>
-          <div class="group border-t border-brand-dark/10 pt-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Gulseren</h3><span class="price-tag">42 zł</span></div><p class="text-sm opacity-60 leading-relaxed">Dubajskie naleśniki z pistacją oraz kadaifem, biała czekolada, tahini, melasa z granatu, owoce sezonowe.</p></div>
-          <div class="group border-t border-brand-dark/10 pt-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Pembe Bulut</h3><span class="price-tag">31 zł</span></div><p class="text-sm opacity-60 leading-relaxed">Mini serniczki, śmietanka różana, sos z marakui, owoce sezonowe, puder z pomarańczy.</p></div>
-          <div class="mt-8 border-t border-brand-accent/30 pt-8 relative">
-            <p class="absolute -top-3 left-4 bg-brand-card px-2 text-[10px] tracking-[.3em] text-brand-accent uppercase font-bold">Śniadanie miesiąca</p>
-            <div class="group mb-6"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Alev</h3><span class="price-tag">38 zł</span></div><p class="text-sm opacity-60 leading-relaxed">Bajgiel „Simit”, pikantny Labneh, sumak, jajecznica z dwóch jaj, grillowana pieczarka, bakłażan oraz cukinia, salsa pico de gallo, rukola, ser Ezine.</p></div>
-            <div class="group"><div class="flex items-baseline justify-between mb-1"><h3 class="text-base font-semibold tracking-widest uppercase">Morbahar</h3><span class="price-tag">38 zł</span></div><p class="text-sm opacity-60 leading-relaxed">Shokupan tostowany w rumie Kraken i espresso, krem z białą czekoladą i wodą z kwiatu pomarańczy, konfitura malinowa, pistacje, liofilizowana malina.</p></div>
+    <div class="photo-wrap">
+      <div class="chip chip-1"><i></i>HTML</div>
+      <div class="chip chip-2"><i></i>CSS</div>
+      <div class="chip chip-3"><i></i>JavaScript</div>
+      <div class="chip chip-4"><i></i>PHP</div>
+      <div class="photo-window">
+        <div class="photo-chrome"><i></i><i></i><i></i><span>zdjecie.jpg</span></div>
+        <div class="photo-body">
+          <img src="zdjecie.jpg" alt="Zdjęcie profilowe" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="photo-placeholder" style="display:none">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+            <span>dodaj plik zdjecie.jpg</span>
           </div>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <section id="slodycze" class="py-24 px-6 md:px-12 bg-brand-dark text-brand-bg">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-5xl md:text-6xl font-serif italic mb-3">Słodycze & Kawa</h2>
-        <p class="text-xs tracking-[.2em] uppercase opacity-40">Muhabbet's Specials · Specialty Coffee · Alkohole</p>
+<!-- ============ MARQUEE ============ -->
+<div class="marquee-section">
+  <div class="marquee-viewport">
+    <div class="marquee-track" id="marqueeTrack">
+      <div class="marquee-group">
+        <span class="marquee-item"><b>PHP</b></span>
+        <span class="marquee-item"><b>JAVASCRIPT</b></span>
+        <span class="marquee-item">HTML5</span>
+        <span class="marquee-item">CSS3</span>
+        <span class="marquee-item">SQL</span>
+        <span class="marquee-item">PYTHON</span>
+        <span class="marquee-item">GIT</span>
+        <span class="marquee-item">LINUX</span>
+        <span class="marquee-item">BOOTSTRAP</span>
+        <span class="marquee-item">REACT</span>
+        <span class="marquee-item">WORDPRESS</span>
+        <span class="marquee-item">MYSQL</span>
+        <span class="marquee-item">TAILWIND CSS</span>
+        <span class="marquee-item">SIECI KOMPUTEROWE</span>
+        <span class="marquee-item">C#</span>
       </div>
-      <div class="grid lg:grid-cols-2 gap-16 items-start">
-        <div data-aos="fade-right">
-          <p class="text-[9px] tracking-[.3em] uppercase font-semibold opacity-35 mb-5 text-brand-warm">Desery & Herbaty</p>
-          <div class="space-y-4 mb-10">
-            <div class="group cursor-pointer flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Creme Pismaniye</p><p class="text-xs opacity-50 mt-0.5">Kremowy deser chałwowy, sos z pomarańczy, wata cukrowa</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">26 zł</span></div>
-            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Cheesecake</p><p class="text-xs opacity-50 mt-0.5">By Łukasz Bartman (dostępny w weekendy)</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">28 zł</span></div>
-            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Turecka herbata Caykur / Bora Bora / Rooibos</p><p class="text-xs opacity-50 mt-0.5">Klasyczna mała (13 zł) lub duże dzbanki 500ml</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">13 - 19 zł</span></div>
+      <div class="marquee-group" aria-hidden="true">
+        <span class="marquee-item"><b>PHP</b></span>
+        <span class="marquee-item"><b>JAVASCRIPT</b></span>
+        <span class="marquee-item">HTML5</span>
+        <span class="marquee-item">CSS3</span>
+        <span class="marquee-item">SQL</span>
+        <span class="marquee-item">PYTHON</span>
+        <span class="marquee-item">GIT</span>
+        <span class="marquee-item">LINUX</span>
+        <span class="marquee-item">BOOTSTRAP</span>
+        <span class="marquee-item">REACT</span>
+        <span class="marquee-item">WORDPRESS</span>
+        <span class="marquee-item">MYSQL</span>
+        <span class="marquee-item">TAILWIND CSS</span>
+        <span class="marquee-item">SIECI KOMPUTEROWE</span>
+        <span class="marquee-item">C#</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ UMIEJĘTNOŚCI ============ -->
+<section class="section" id="umiejetnosci">
+  <div class="container">
+    <div data-reveal>
+      <div class="eyebrow">// umiejetnosci.json</div>
+      <h2 class="section-title">Kwalifikacje zawodowe i stack technologiczny</h2>
+      <p class="section-sub">W trakcie nauki w technikum zdobywam dwie kwalifikacje zawodowe w zawodzie technik informatyk — każda obejmuje inny obszar kompetencji.</p>
+    </div>
+
+    <div class="qual-grid">
+      <div class="qual-card c-green" data-reveal>
+        <span class="qual-badge">INF.02</span>
+        <h3>Administracja i eksploatacja systemów komputerowych, urządzeń peryferyjnych i lokalnych sieci komputerowych</h3>
+        <p>Ta kwalifikacja obejmuje montaż i konfigurację komputerów oraz serwerów, instalację i administrację systemami operacyjnymi, diagnostykę oraz naprawę sprzętu, a także projektowanie i utrzymanie lokalnych sieci komputerowych zgodnie z zasadami bezpieczeństwa danych.</p>
+        <div class="qual-tags">
+          <span class="tag">Windows / Linux</span>
+          <span class="tag">Sieci LAN</span>
+          <span class="tag">Diagnostyka sprzętu</span>
+        </div>
+      </div>
+
+      <div class="qual-card c-blue" data-reveal>
+        <span class="qual-badge">INF.03</span>
+        <h3>Tworzenie i administrowanie stronami i aplikacjami internetowymi oraz bazami danych</h3>
+        <p>Zakres tej kwalifikacji to projektowanie i kodowanie stron internetowych w HTML i CSS, programowanie w JavaScript oraz PHP, a także projektowanie i administrowanie relacyjnymi bazami danych na potrzeby aplikacji webowych.</p>
+        <div class="qual-tags">
+          <span class="tag">HTML / CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">PHP</span>
+          <span class="tag">MySQL</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stack-grid">
+      <div class="stack-col" data-reveal>
+        <h4>Frontend</h4>
+        <div class="skill-row" data-reveal>
+          <div class="skill-row-top"><span>HTML5 / CSS3</span><span class="lvl">Zaawansowany</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:88%"></div></div>
+        </div>
+        <div class="skill-row" data-reveal>
+          <div class="skill-row-top"><span>JavaScript</span><span class="lvl">Średniozaawansowany</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:62%"></div></div>
+        </div>
+        <div class="skill-row" data-reveal>
+          <div class="skill-row-top"><span>Tailwind / Bootstrap</span><span class="lvl">Średniozaawansowany</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:60%"></div></div>
+        </div>
+      </div>
+
+      <div class="stack-col" data-reveal>
+        <h4>Backend</h4>
+        <div class="skill-row" data-reveal>
+          <div class="skill-row-top"><span>PHP</span><span class="lvl">Średniozaawansowany</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:58%"></div></div>
+        </div>
+        <div class="skill-row" data-reveal>
+          <div class="skill-row-top"><span>SQL / MySQL</span><span class="lvl">Średniozaawansowany</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:60%"></div></div>
+        </div>
+        <div class="skill-row" data-reveal>
+          <div class="skill-row-top"><span>Python</span><span class="lvl">Podstawowy</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:35%"></div></div>
+        </div>
+      </div>
+
+      <div class="stack-col" data-reveal>
+        <h4>Narzędzia</h4>
+        <div class="skill-row" data-reveal>
+          <div class="skill-row-top"><span>Git / GitHub</span><span class="lvl">Średniozaawansowany</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:65%"></div></div>
+        </div>
+        <div class="skill-row" data-reveal>
+          <div class="skill-row-top"><span>Linux</span><span class="lvl">Podstawowy</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:40%"></div></div>
+        </div>
+        <div class="skill-row" data-reveal>
+          <div class="skill-row-top"><span>Sieci komputerowe</span><span class="lvl">Średniozaawansowany</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:55%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRAKTYKI ============ -->
+<section class="section section-alt" id="praktyki">
+  <div class="container">
+    <div data-reveal>
+      <div class="eyebrow">// praktyki.log</div>
+      <h2 class="section-title">Historia praktyk zawodowych</h2>
+      <p class="section-sub">Dwie praktyki zawodowe zrealizowane w trakcie nauki, dopasowane do kolejnych zdobywanych kwalifikacji.</p>
+    </div>
+
+    <div class="timeline" data-reveal>
+      <div class="timeline-item">
+        <div class="timeline-card">
+          <div class="timeline-meta">
+            <span class="badge">Praktyka #1 · INF.02</span>
+            <span class="date">Czerwiec 2024</span>
           </div>
-          <p class="text-[9px] tracking-[.3em] uppercase font-semibold opacity-35 mb-5 text-brand-warm mt-12">Muhabbet's Specials</p>
-          <div class="space-y-4 mb-10">
-            <div class="group cursor-pointer flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Rose / Lavender / Hazelnut Coffee</p><p class="text-xs opacity-50 mt-0.5">Autorskie syropy, espresso, śmietanka, mleko</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">21 - 28 zł</span></div>
-            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Helva Coffee / Creamy Velvet</p><p class="text-xs opacity-50 mt-0.5">Doppio, tahini, miód (Creamy Velvet z Baileys)</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">25 - 32 zł</span></div>
-            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Salep & Jaffa</p><p class="text-xs opacity-50 mt-0.5">Klasyczny napój salep / Czekolada mleczna z pomarańczą i doppio</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">24 zł</span></div>
+          <h3>Nazwa Firmy Sp. z o.o.</h3>
+          <p class="role">Praktykant ds. administracji systemami komputerowymi</p>
+          <ul>
+            <li>Wsparcie w konfiguracji i serwisowaniu stanowisk komputerowych</li>
+            <li>Pomoc w administrowaniu siecią lokalną i zarządzaniu kontami użytkowników</li>
+            <li>Diagnozowanie i rozwiązywanie podstawowych problemów sprzętowych</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-card">
+          <div class="timeline-meta">
+            <span class="badge">Praktyka #2 · INF.03</span>
+            <span class="date">Czerwiec 2025</span>
+          </div>
+          <h3>Nazwa Firmy 2 Sp. z o.o.</h3>
+          <p class="role">Praktykant ds. tworzenia stron internetowych</p>
+          <ul>
+            <li>Tworzenie i modyfikacja podstron w HTML, CSS i JavaScript</li>
+            <li>Wsparcie zespołu przy pracach nad bazą danych MySQL</li>
+            <li>Testowanie i poprawa responsywności stron pod różne urządzenia</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJEKTY ============ -->
+<section class="section" id="projekty">
+  <div class="container">
+    <div data-reveal>
+      <div class="eyebrow">// projekty/</div>
+      <h2 class="section-title">Wybrane projekty</h2>
+      <p class="section-sub">Kilka prac, przy których mogłem/mogłam w praktyce wykorzystać zdobywane umiejętności.</p>
+    </div>
+
+    <div class="proj-grid">
+      <div class="proj-card" data-reveal>
+        <div class="code-thumb">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div class="code-line"></div><div class="code-line"></div><div class="code-line"></div><div class="code-line"></div>
+        </div>
+        <div class="proj-body">
+          <h3>Strona wizytówkowa firmy</h3>
+          <p>Responsywna strona typu one-page zbudowana od podstaw w HTML, CSS i odrobinie JavaScript.</p>
+          <div class="proj-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div>
+          <div class="proj-links">
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9c0-1.1.4-1.8 1-2.4-3.3-.4-6.8-1.6-6.8-7.3 0-1.6.6-3 1.5-4-.2-.4-.6-2 .2-4 0 0 1.3-.4 4.1 1.5a14 14 0 0 1 7.4 0C21.9 2.3 23.1 2.7 23.1 2.7c.8 2 .4 3.6.2 4 1 1 1.5 2.4 1.5 4 0 5.7-3.5 6.9-6.8 7.3.5.5 1 1.4 1 2.9V21"/></svg>Kod</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>Podgląd</a>
           </div>
         </div>
-        <div data-aos="fade-left">
-          <p class="text-[9px] tracking-[.3em] uppercase font-semibold opacity-35 mb-5 text-brand-warm">Klasyczne Kawy & Matcha</p>
-          <div class="space-y-4 mb-10">
-            <div class="group cursor-pointer flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Kawa Turecka</p><p class="text-xs opacity-50 mt-0.5">Klasyczna / Kardamonowa / Czekoladowa</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">19 zł</span></div>
-            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Kawy na bazie Espresso</p><p class="text-xs opacity-50 mt-0.5">Doppio, Americano, Flat White, Cappuccino, Latte</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">15 - 20 zł</span></div>
-            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Matcha Bar</p><p class="text-xs opacity-50 mt-0.5">Matcha latte, Iced matcha orange, Matcha tonic</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">24 - 26 zł</span></div>
-            <p class="text-xs opacity-40 mt-3 italic">* Mleko roślinne (Owsiane / Grochowe) +3 zł, bez laktozy +2 zł</p>
+      </div>
+
+      <div class="proj-card" data-reveal>
+        <div class="code-thumb">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div class="code-line"></div><div class="code-line"></div><div class="code-line"></div><div class="code-line"></div>
+        </div>
+        <div class="proj-body">
+          <h3>Aplikacja do zarządzania zadaniami</h3>
+          <p>Prosta aplikacja typu to-do z zapisem danych, wykonana w PHP i MySQL po stronie backendu.</p>
+          <div class="proj-tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">JS</span></div>
+          <div class="proj-links">
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9c0-1.1.4-1.8 1-2.4-3.3-.4-6.8-1.6-6.8-7.3 0-1.6.6-3 1.5-4-.2-.4-.6-2 .2-4 0 0 1.3-.4 4.1 1.5a14 14 0 0 1 7.4 0C21.9 2.3 23.1 2.7 23.1 2.7c.8 2 .4 3.6.2 4 1 1 1.5 2.4 1.5 4 0 5.7-3.5 6.9-6.8 7.3.5.5 1 1.4 1 2.9V21"/></svg>Kod</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>Podgląd</a>
           </div>
-          <p class="text-[9px] tracking-[.3em] uppercase font-semibold opacity-35 mb-5 text-brand-warm mt-12">Napoje Zimne & Alkohole</p>
-          <div class="space-y-4 mb-10">
-            <div class="group cursor-pointer flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Lemoniady & Świeże Soki</p><p class="text-xs opacity-50 mt-0.5">Różana, lawendowa, pomarańcza, granat NFC</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">od 17 zł</span></div>
-            <div class="group cursor-pointer border-t border-white/10 pt-4 flex items-baseline justify-between"><div><p class="text-sm font-semibold uppercase tracking-wide group-hover:text-brand-warm transition">Frizzante & Mimosa</p><p class="text-xs opacity-50 mt-0.5">Mimosa pomarańczowa / granatowa, kieliszki i karafki</p></div><span class="text-xs font-medium text-brand-warm whitespace-nowrap ml-4">od 15 zł</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-reveal>
+        <div class="code-thumb">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div class="code-line"></div><div class="code-line"></div><div class="code-line"></div><div class="code-line"></div>
+        </div>
+        <div class="proj-body">
+          <h3>Sklep internetowy — projekt szkolny</h3>
+          <p>Projekt zaliczeniowy: katalog produktów, koszyk i panel administracyjny w PHP.</p>
+          <div class="proj-tags"><span class="tag">PHP</span><span class="tag">SQL</span><span class="tag">Bootstrap</span></div>
+          <div class="proj-links">
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9c0-1.1.4-1.8 1-2.4-3.3-.4-6.8-1.6-6.8-7.3 0-1.6.6-3 1.5-4-.2-.4-.6-2 .2-4 0 0 1.3-.4 4.1 1.5a14 14 0 0 1 7.4 0C21.9 2.3 23.1 2.7 23.1 2.7c.8 2 .4 3.6.2 4 1 1 1.5 2.4 1.5 4 0 5.7-3.5 6.9-6.8 7.3.5.5 1 1.4 1 2.9V21"/></svg>Kod</a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>Podgląd</a>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="opinie" class="py-24 px-6 md:px-12 bg-brand-card">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-14" data-aos="fade-up">
-        <div class="flex items-center justify-center gap-2 mb-3">
-          <span class="star">★★★★★</span>
-          <span class="font-serif text-2xl italic">4.6 / 5</span>
-          <span class="text-sm opacity-40">· 1 700+ opinii Google</span>
+<!-- ============ DOKUMENTY ============ -->
+<section class="section section-alt" id="dokumenty">
+  <div class="container">
+    <div data-reveal>
+      <div class="eyebrow">// dokumenty.pdf</div>
+      <h2 class="section-title">Dokumenty do pobrania</h2>
+      <p class="section-sub">CV oraz dokumenty potwierdzające zdobyte umiejętności i przebieg praktyk.</p>
+    </div>
+
+    <div class="doc-grid">
+      <div class="doc-card" data-reveal>
+        <div class="doc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
         </div>
-        <h2 class="text-4xl md:text-5xl font-serif italic">Co mówią goście</h2>
+        <h3>Curriculum Vitae</h3>
+        <p>Pełne CV w formacie PDF — doświadczenie, wykształcenie i umiejętności.</p>
+        <a href="cv.pdf" download class="btn btn-ghost">Pobierz PDF</a>
       </div>
-      <div class="grid md:grid-cols-3 gap-6 mb-12">
-        <div class="review-card" data-aos="fade-up" data-aos-delay="0"><div style="color:#B85C2C;font-size:13px" class="mb-4 mt-2">★★★★★</div><p class="text-sm leading-relaxed opacity-75 mb-5">Najlepsze śniadanie jakie jadłam w Krakowie. Simit i Cilbir to coś absolutnie wyjątkowego. Wróciłam następnego dnia by spróbować Bal Kaymak.</p><div class="flex items-center gap-3"><div style="width:36px;height:36px;border-radius:50%;background:#B85C2C22;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#7a3515">MK</div><div><p class="text-sm font-semibold">Marta K.</p><p class="text-xs opacity-40">Google · Polska</p></div></div></div>
-        <div class="review-card" data-aos="fade-up" data-aos-delay="100"><div style="color:#B85C2C;font-size:13px" class="mb-4 mt-2">★★★★★</div><p class="text-sm leading-relaxed opacity-75 mb-5">One of the best breakfast meals we've ever had. We ordered the two bestsellers — both were amazing. A must when visiting Krakow.</p><div class="flex items-center gap-3"><div style="width:36px;height:36px;border-radius:50%;background:#B85C2C22;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#7a3515">JB</div><div><p class="text-sm font-semibold">James B.</p><p class="text-xs opacity-40">Google · UK</p></div></div></div>
-        <div class="review-card" data-aos="fade-up" data-aos-delay="200"><div style="color:#B85C2C;font-size:13px" class="mb-4 mt-2">★★★★★</div><p class="text-sm leading-relaxed opacity-75 mb-5">Porcje ogromne, obsługa super. Klimat luźny i autentyczny — dokładnie to czego szukałam na Kazimierzu. Specialty coffee dopełniła całości.</p><div class="flex items-center gap-3"><div style="width:36px;height:36px;border-radius:50%;background:#B85C2C22;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#7a3515">AW</div><div><p class="text-sm font-semibold">Anna W.</p><p class="text-xs opacity-40">Google · Polska</p></div></div></div>
-      </div>
-      <div class="flex flex-wrap justify-center gap-3" data-aos="fade-up">
-        <span class="press-badge">TripAdvisor · Top Restaurant Kraków</span>
-        <span class="press-badge">32 K · Instagram @muhabbet_krakow</span>
-        <span class="press-badge">Modern Oriental · Kazimierz od 2021</span>
-      </div>
-    </div>
-  </section>
 
-  <section id="instagram" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
-    <div class="text-center mb-12" data-aos="fade-up">
-      <h2 class="text-4xl md:text-5xl font-serif italic mb-2">@muhabbet_krakow</h2>
-      <p class="text-xs tracking-[.2em] uppercase opacity-50">32 000 obserwujących · Instagram</p>
-    </div>
-    <div class="insta-grid grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-3" data-aos="fade-up" data-aos-delay="100">
-      <div class="cell col-span-2 row-span-2" style="height:280px"><img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=800" alt="Instagram"></div>
-      <div class="cell" style="height:135px"><img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=600" alt="Instagram"></div>
-      <div class="cell" style="height:135px"><img src="https://images.unsplash.com/photo-1519676867240-f03562e64548?q=80&w=600" alt="Instagram"></div>
-      <div class="cell" style="height:135px"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=600" alt="Instagram"></div>
-      <div class="cell" style="height:135px"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=600" alt="Instagram"></div>
-      <div class="cell" style="height:135px"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600" alt="Instagram"></div>
-      <div class="cell" style="height:135px"><img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=600" alt="Instagram"></div>
-      <div class="cell" style="height:135px"><img src="https://images.unsplash.com/photo-1436076863939-06870fe779c2?q=80&w=600" alt="Instagram"></div>
-      <div class="cell" style="height:135px"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=600" alt="Instagram"></div>
-    </div>
-    <div class="text-center mt-8" data-aos="fade-up">
-      <a href="https://www.instagram.com/muhabbet_krakow/" target="_blank"
-        class="inline-block border border-brand-dark/30 text-brand-dark px-8 py-3 rounded-full text-xs tracking-widest uppercase font-semibold hover:bg-brand-dark hover:text-brand-bg transition-all duration-300">Obserwuj na Instagramie</a>
-    </div>
-  </section>
-
-  <section id="o-nas" class="py-24 bg-brand-dark text-brand-bg">
-    <div class="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-16 items-center">
-      <div data-aos="fade-right">
-        <p class="ornament mb-4">✦</p>
-        <h2 class="text-5xl font-serif italic mb-6">Ciepła rozmowa.</h2>
-        <p class="text-base font-light leading-relaxed opacity-75 mb-6">Po turecku „muhabbet" oznacza ciepłą rozmowę między przyjaciółmi. To wszystko, czym chcemy być — miejscem, do którego przychodzi się bez pośpiechu, na długie śniadanie i dobrą kawę.</p>
-        <p class="text-base font-light leading-relaxed opacity-75 mb-8">Jesteśmy na Brzozowej 15, w sercu Kazimierza. Wieczorami zamieniamy się w bar z koktajlami i kraftem. Bez rezerwacji — wpadnij, poczekaj chwilę w kolejce, nie pożałujesz.</p>
-        <div class="flex flex-wrap gap-2 mb-8">
-          <span class="badge">Wegańskie opcje</span>
-          <span class="badge">Walk-in only</span>
-          <span class="badge">Specialty coffee</span>
-          <span class="badge">Bar wieczorny</span>
+      <div class="doc-card" data-reveal>
+        <div class="doc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><path d="M8.2 13.9L7 22l5-3 5 3-1.2-8.1"/></svg>
         </div>
-        <a href="https://www.instagram.com/muhabbet_krakow/" target="_blank" class="inline-block border-b border-brand-warm pb-1 text-sm tracking-widest uppercase hover:text-brand-warm transition">Instagram @muhabbet_krakow</a>
+        <h3>Certyfikaty i zaświadczenia</h3>
+        <p>Zaświadczenia ukończonych kursów oraz potwierdzenia kwalifikacji.</p>
+        <a href="certyfikaty.pdf" download class="btn btn-ghost">Pobierz PDF</a>
       </div>
-      <div class="grid grid-cols-2 gap-4 items-end" data-aos="fade-left">
-        <div class="img-zoom rounded-xl" style="height:270px;margin-top:28px"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600" class="w-full h-full object-cover rounded-xl"></div>
-        <div class="img-zoom rounded-xl" style="height:270px"><img src="https://images.unsplash.com/photo-1517433367423-c7e5b0f35086?q=80&w=600" class="w-full h-full object-cover rounded-xl"></div>
+
+      <div class="doc-card" data-reveal>
+        <div class="doc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <h3>Opinie z praktyk</h3>
+        <p>Referencje i opinie wystawione po odbytych praktykach zawodowych.</p>
+        <a href="opinie.pdf" download class="btn btn-ghost">Pobierz PDF</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+</main>
 
-  <section id="kontakt" class="py-20 px-6 md:px-12 max-w-7xl mx-auto">
-    <div class="grid md:grid-cols-3 gap-10 mb-14">
-      <div data-aos="fade-up"><h4 class="font-serif italic text-2xl mb-4">Adres</h4><p class="text-sm opacity-60 leading-relaxed">ul. Brzozowa 15<br>31-050 Kraków, Kazimierz<br><br><span class="text-xs opacity-50">Parking w okolicy · Pies mile widziany</span></p></div>
-      <div data-aos="fade-up" data-aos-delay="100"><h4 class="font-serif italic text-2xl mb-4">Godziny</h4><p class="text-sm opacity-60 leading-relaxed">Pon – Pt: 09:00 – 15:00<br>Sob – Niedz: 09:00 – 16:00<br>Bar: Pt–Niedz od 17:00<br><br><span class="text-xs opacity-50">Walk-in only · Czas stolika do 100 min</span></p></div>
-      <div data-aos="fade-up" data-aos-delay="200"><h4 class="font-serif italic text-2xl mb-4">Kontakt</h4><p class="text-sm opacity-60 leading-relaxed"><a href="https://www.instagram.com/muhabbet_krakow/" target="_blank" class="hover:text-brand-accent transition">IG: @muhabbet_krakow</a><br><a href="https://www.facebook.com/muhabbetkrakow" target="_blank" class="hover:text-brand-accent transition">FB: Muhabbet Bar Cafe</a><br><br><span class="text-xs opacity-50">Płatność kartą · WC na miejscu</span></p></div>
+<!-- ============ KONTAKT / FOOTER ============ -->
+<footer class="footer" id="kontakt">
+  <div class="container">
+    <div class="footer-inner" data-reveal>
+      <div class="eyebrow" style="justify-content:center">// kontakt.sh</div>
+      <h2>Porozmawiajmy</h2>
+      <p>Otwarty/a na praktyki, staże i ciekawe projekty. Napisz — chętnie odpowiem.</p>
+      <a href="mailto:twoj@email.pl" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>
+        wyślij wiadomość
+      </a>
+      <div class="socials">
+        <a href="#" class="social-btn" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9c0-1.1.4-1.8 1-2.4-3.3-.4-6.8-1.6-6.8-7.3 0-1.6.6-3 1.5-4-.2-.4-.6-2 .2-4 0 0 1.3-.4 4.1 1.5a14 14 0 0 1 7.4 0C21.9 2.3 23.1 2.7 23.1 2.7c.8 2 .4 3.6.2 4 1 1 1.5 2.4 1.5 4 0 5.7-3.5 6.9-6.8 7.3.5.5 1 1.4 1 2.9V21"/></svg></a>
+        <a href="#" class="social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9h4v2c.6-1.2 2-2.3 4-2.3 3 0 4 2 4 5.5V21h-4v-6c0-1.5-.5-2.5-2-2.5-1.2 0-2 1-2 2.5V21h-4z"/></svg></a>
+        <a href="mailto:twoj@email.pl" class="social-btn" aria-label="E-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg></a>
+      </div>
     </div>
-    <div class="rounded-2xl overflow-hidden border border-brand-dark/10" style="height:320px" data-aos="fade-up">
-      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=19.942%2C50.050%2C19.954%2C50.057&layer=mapnik&marker=50.053400%2C19.948200" style="width:100%;height:100%;border:0" loading="lazy" allowfullscreen title="Muhabbet Bar — ul. Brzozowa 15, Kraków"></iframe>
-    </div>
-    <div class="mt-6 text-center">
-      <a href="https://maps.google.com/?q=Brzozowa+15+Krakow" target="_blank" class="inline-block bg-brand-dark text-brand-bg px-8 py-3 rounded-full text-xs tracking-widest uppercase font-semibold hover:bg-brand-accent transition-all duration-300">Otwórz w Google Maps</a>
-    </div>
-  </section>
 
-  <footer class="py-8 px-6 border-t border-brand-dark/10 text-center">
-    <p class="ornament mb-2">✦</p>
-    <p class="font-serif italic text-2xl mb-1">Muhabbet.</p>
-    <p class="text-xs opacity-35 tracking-widest uppercase">Breakfast & Brunch · Bar · Kazimierz · Kraków</p>
-  </footer>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Imię Nazwisko</span>
+      <span>Zbudowano z ❤ i dużą ilością kawy</span>
+    </div>
+  </div>
+</footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ once: true, offset: 80, easing: 'ease-out-cubic', duration: 700 });
-    function openMenuModal() { const modal = document.getElementById('fullMenuModal'); modal.classList.add('active'); document.body.classList.add('modal-open'); }
-    function closeMenuModal() { const modal = document.getElementById('fullMenuModal'); modal.classList.remove('active'); document.body.classList.remove('modal-open'); }
-    document.getElementById('fullMenuModal').addEventListener('click', function (e) { if (e.target === this) { closeMenuModal(); } });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeMenuModal(); } });
-  </script>
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // rok w stopce
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // nawigacja: efekt przy scrollu
+  var nav = document.getElementById('nav');
+  function onScroll(){
+    if(window.scrollY > 12){ nav.classList.add('scrolled'); }
+    else{ nav.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // menu mobilne
+  var toggle = document.getElementById('menuToggle');
+  var tabs = document.getElementById('tabs');
+  toggle.addEventListener('click', function(){
+    var open = tabs.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open);
+  });
+  tabs.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click', function(){
+      tabs.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // scrollspy — podświetlanie aktywnej zakładki
+  var sections = ['o-mnie','umiejetnosci','praktyki','projekty','dokumenty'].map(function(id){
+    return document.getElementById(id);
+  }).filter(Boolean);
+  var tabEls = Array.prototype.slice.call(tabs.querySelectorAll('.tab'));
+
+  if('IntersectionObserver' in window){
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var id = entry.target.id;
+          tabEls.forEach(function(t){
+            t.classList.toggle('active', t.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, {rootMargin: '-45% 0px -50% 0px', threshold: 0});
+    sections.forEach(function(s){ spy.observe(s); });
+
+    // reveal on scroll
+    var reveal = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          reveal.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.15, rootMargin: '0px 0px -60px 0px'});
+    document.querySelectorAll('[data-reveal]').forEach(function(el){ reveal.observe(el); });
+  } else {
+    document.querySelectorAll('[data-reveal]').forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  // efekt pisania w hero
+  var typedEl = document.getElementById('typedText');
+  var fullText = 'Imię Nazwisko — uczeń technikum informatycznego';
+  if(reduceMotion){
+    typedEl.textContent = fullText;
+  } else {
+    var i = 0;
+    (function typeChar(){
+      if(i <= fullText.length){
+        typedEl.textContent = fullText.slice(0, i);
+        i++;
+        setTimeout(typeChar, 38);
+      }
+    })();
+  }
+})();
+</script>
 </body>
 </html>
